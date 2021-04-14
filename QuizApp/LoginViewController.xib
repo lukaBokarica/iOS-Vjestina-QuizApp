@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="QuizApp">
+            <connections>
+                <outlet property="loginButton" destination="HF9-nY-Tqe" id="Rgi-fg-vJO"/>
+                <outlet property="passwordField" destination="n0v-ah-5dF" id="JMJ-U6-4rC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTl-hx-L1U">
+                    <rect key="frame" x="102" y="159" width="210" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="puv-pz-ecs" userLabel="height = 80"/>
+                        <constraint firstAttribute="width" constant="210" id="wS0-Z2-HtB"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="PopQuiz">
+                            <attributes>
+                                <color key="NSColor" systemColor="systemBackgroundColor"/>
+                                <font key="NSFont" size="46" name="Futura-Bold"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="shadowColor" systemColor="systemPinkColor"/>
+                    <size key="shadowOffset" width="-2" height="6"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="dp0-oD-V1p">
+                    <rect key="frame" x="102" y="379" width="210" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="210" id="2JT-qg-NTE"/>
+                        <constraint firstAttribute="height" constant="34" id="NDt-gl-1Lf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="username"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="usernameEntered:" destination="-1" eventType="editingDidEnd" id="9x3-rR-Cdm"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="n0v-ah-5dF">
+                    <rect key="frame" x="102" y="443" width="210" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="CLZ-6y-v0B"/>
+                        <constraint firstAttribute="width" constant="210" id="N16-Xa-xMY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="passwordEditingChanged:" destination="-1" eventType="editingChanged" id="AHe-Vo-2Yc"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-nY-Tqe">
+                    <rect key="frame" x="102" y="522" width="210" height="34"/>
+                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="210" id="1jk-kl-Vy4"/>
+                        <constraint firstAttribute="height" constant="34" id="cUg-c6-G5n"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                    <state key="normal" title="Login">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isEnabled" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="loginClicked:" destination="-1" eventType="touchUpInside" id="GDX-I7-Rei"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+            <color key="tintColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="LTl-hx-L1U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Vf0-g7-zr3"/>
+                <constraint firstItem="LTl-hx-L1U" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="115" id="ZRN-bL-Wbj"/>
+                <constraint firstItem="n0v-ah-5dF" firstAttribute="top" secondItem="dp0-oD-V1p" secondAttribute="bottom" constant="30" id="fJp-Ds-YqV"/>
+                <constraint firstItem="HF9-nY-Tqe" firstAttribute="leading" secondItem="n0v-ah-5dF" secondAttribute="leading" id="iJY-eD-8DA"/>
+                <constraint firstItem="dp0-oD-V1p" firstAttribute="leading" secondItem="LTl-hx-L1U" secondAttribute="leading" id="jsR-Zz-hLi"/>
+                <constraint firstItem="n0v-ah-5dF" firstAttribute="leading" secondItem="dp0-oD-V1p" secondAttribute="leading" id="kzd-gO-HNj"/>
+                <constraint firstItem="dp0-oD-V1p" firstAttribute="top" secondItem="LTl-hx-L1U" secondAttribute="bottom" constant="150" id="vy9-Ke-lzp"/>
+                <constraint firstItem="HF9-nY-Tqe" firstAttribute="top" secondItem="n0v-ah-5dF" secondAttribute="bottom" constant="45" id="wdS-Er-MnZ"/>
+            </constraints>
+            <point key="canvasLocation" x="312" y="174"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
