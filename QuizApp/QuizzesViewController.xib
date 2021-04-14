@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuizzesViewController" customModule="QuizApp" customModuleProvider="target">
             <connections>
                 <outlet property="funFactLabel" destination="tF1-Mz-d2H" id="o2c-YN-tZo"/>
+                <outlet property="quizTable" destination="tP0-ge-6bB" id="Rue-RC-8SZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -85,6 +86,10 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tP0-ge-6bB">
+                    <rect key="frame" x="87" y="450" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
@@ -94,7 +99,7 @@
                 <constraint firstItem="ZhY-3i-FF7" firstAttribute="leading" secondItem="Df4-QT-9Uf" secondAttribute="leading" id="l3H-ef-Uaf"/>
                 <constraint firstItem="Df4-QT-9Uf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="xNw-o2-PK3"/>
             </constraints>
-            <point key="canvasLocation" x="-262.31884057971018" y="18.75"/>
+            <point key="canvasLocation" x="-4252" y="-1053"/>
         </view>
     </objects>
     <resources>
