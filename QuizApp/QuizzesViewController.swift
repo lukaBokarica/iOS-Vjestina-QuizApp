@@ -9,16 +9,39 @@ import UIKit
 
 class QuizzesViewController: UIViewController {
     
+    @IBOutlet weak var funFactLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var ds : DataService
-        ds = DataService()
+        let ds = DataService()
         let quizzes = ds.fetchQuizes()
-            
+        
+        let funFactNum = getFunFact(quizzes: quizzes)
+        funFactLabel.text = "There are " + String(funFactNum) +
+            " quizzes that contain the word NBA."
+        getCategories(quizzes: quizzes)
+    }
+    
+    func getCategories(quizzes : [Quiz]) {
+        var categories = Set<QuizCategory>()
+        
         for quiz in quizzes {
-            print(quiz.id)
+            categories.insert(quiz.category)
         }
+    }
+    
+    func getFunFact(quizzes : [Quiz]) -> Int {
+        var stringAppearanceCounter = 0
+        for quiz in quizzes {
+            let quizQuestions = quiz.questions
+            for question in quizQuestions {
+                if(question.question.contains("NBA")) {
+                    stringAppearanceCounter += 1
+                }
+            }
+        }
+        return stringAppearanceCounter
     }
 
 
