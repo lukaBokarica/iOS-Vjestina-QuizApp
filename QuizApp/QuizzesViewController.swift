@@ -15,11 +15,21 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var quizzesByCategory = Dictionary<QuizCategory,[Quiz]>()
         
+    @IBAction func getQuizClicked(_ sender: UIButton) {
+        let ds = DataService()
+        let quizzes = ds.fetchQuizes()
+        quizzesByCategory = Dictionary(grouping: quizzes) { (quiz) -> QuizCategory in
+            return quiz.category
+        }
+        quizTable.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         quizTable.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         quizTable.delegate = self
         quizTable.dataSource = self
+        quizTable.backgroundColor = .clear
         
         let ds = DataService()
         let quizzes = ds.fetchQuizes()
@@ -43,11 +53,14 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(
+        let cell: TableViewCell = tableView.dequeueReusableCell(
             withIdentifier: TableViewCell.identifier,
-         for: indexPath)
+            for: indexPath) as! TableViewCell
         let quizCat = Array(quizzesByCategory.keys)[indexPath.section]
-        cell.textLabel?.text = quizzesByCategory[quizCat]![indexPath.row].title
+        
+        cell.quizNameLabel.text = quizzesByCategory[quizCat]![indexPath.row].title
+        cell.quizDescriptionLabel.text = quizzesByCategory[quizCat]![indexPath.row].description
+        cell.quizDifficultyLabel!.text! = "Difficulty: " + String(quizzesByCategory[quizCat]![indexPath.row].level)
         return cell
     }
     

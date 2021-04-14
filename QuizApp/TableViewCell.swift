@@ -11,12 +11,22 @@ class TableViewCell: UITableViewCell {
     
     static let identifier = "TableViewCell"
     
+    @IBOutlet weak var quizNameLabel: UILabel!
+    
+    @IBOutlet weak var quizDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var quizDifficultyLabel: UILabel!
+    
     static func nib() -> UINib {
             return UINib(nibName: "TableViewCell", bundle: nil)
     }
     
+    @IBOutlet weak var innerView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        backgroundColor = .clear
         // Initialization code
     }
 
@@ -24,6 +34,10 @@ class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setupUI() {
+        
     }
     
 }
