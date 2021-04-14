@@ -55,6 +55,8 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="usernameEntered:" destination="-1" eventType="editingDidEnd" id="9x3-rR-Cdm"/>
+                        <action selector="usernameFieldDeselected:" destination="-1" eventType="editingDidEnd" id="im6-2v-Iwv"/>
+                        <action selector="usernameFieldSelected:" destination="-1" eventType="editingDidBegin" id="l9c-YE-UAb"/>
                     </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="n0v-ah-5dF">
@@ -73,9 +75,11 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="passwordEditingChanged:" destination="-1" eventType="editingChanged" id="AHe-Vo-2Yc"/>
+                        <action selector="passwordFieldDeselected:" destination="-1" eventType="editingDidEnd" id="B4Z-KA-EnH"/>
+                        <action selector="passwordFieldSelected:" destination="-1" eventType="editingDidBegin" id="QvD-i9-L7c"/>
                     </connections>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-nY-Tqe">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-nY-Tqe">
                     <rect key="frame" x="102" y="522" width="210" height="34"/>
                     <color key="backgroundColor" systemColor="systemRedColor"/>
                     <constraints>
@@ -111,7 +115,7 @@
                 <constraint firstItem="dp0-oD-V1p" firstAttribute="top" secondItem="LTl-hx-L1U" secondAttribute="bottom" constant="150" id="vy9-Ke-lzp"/>
                 <constraint firstItem="HF9-nY-Tqe" firstAttribute="top" secondItem="n0v-ah-5dF" secondAttribute="bottom" constant="45" id="wdS-Er-MnZ"/>
             </constraints>
-            <point key="canvasLocation" x="312" y="174"/>
+            <point key="canvasLocation" x="1" y="174"/>
         </view>
     </objects>
     <resources>

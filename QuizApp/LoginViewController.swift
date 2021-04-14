@@ -19,8 +19,25 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loginButton.isEnabled = false
+        //self.loginButton.isEnabled = false
         //view.backgroundColor = .magenta
+    }
+    
+    @IBAction func usernameFieldSelected(_ sender: UITextField) {
+        sender.layer.borderColor = UIColor.red.cgColor
+        sender.layer.borderWidth += 1
+    }
+    
+    @IBAction func usernameFieldDeselected(_ sender: UITextField) {
+        sender.layer.borderWidth -= 1
+    }
+    @IBAction func passwordFieldSelected(_ sender: UITextField) {
+        sender.layer.borderColor = UIColor.red.cgColor
+        sender.layer.borderWidth += 1
+    }
+    
+    @IBAction func passwordFieldDeselected(_ sender: UITextField) {
+        sender.layer.borderWidth -= 1
     }
     
     @IBAction func usernameEntered(_ sender: UITextField) {
