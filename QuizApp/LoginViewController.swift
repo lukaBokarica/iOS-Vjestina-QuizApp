@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  QuizApp
 //
-//  Created by Pero Bokarica on 13.04.2021..
+//  Created by Luka Bokarica on 13.04.2021..
 //
 
 import UIKit
