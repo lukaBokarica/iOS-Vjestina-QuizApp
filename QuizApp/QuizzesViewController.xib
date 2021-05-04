@@ -20,26 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Df4-QT-9Uf">
-                    <rect key="frame" x="101" y="64" width="212.5" height="70"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="70" id="Cfl-Sn-fnO" userLabel="height = 80"/>
-                    </constraints>
-                    <attributedString key="attributedText">
-                        <fragment content="PopQuiz">
-                            <attributes>
-                                <color key="NSColor" systemColor="systemBackgroundColor"/>
-                                <font key="NSFont" size="46" name="Futura-Bold"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
-                    <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="shadowColor" systemColor="systemPinkColor"/>
-                    <size key="shadowOffset" width="-3" height="6"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhY-3i-FF7">
-                    <rect key="frame" x="102" y="164" width="210" height="34"/>
+                    <rect key="frame" x="102" y="84" width="210" height="34"/>
                     <color key="backgroundColor" systemColor="systemRedColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="hv5-hQ-4Vm"/>
@@ -60,7 +42,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBI-rJ-D2I">
-                    <rect key="frame" x="83" y="223" width="311" height="45.5"/>
+                    <rect key="frame" x="83" y="143" width="311" height="45.5"/>
                     <attributedString key="attributedText">
                         <fragment content="Fun Fact">
                             <attributes>
@@ -75,7 +57,7 @@
                     <size key="shadowOffset" width="-1" height="1"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="lightbulb.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="E99-tz-Z8g">
-                    <rect key="frame" x="20" y="221" width="61" height="48"/>
+                    <rect key="frame" x="20" y="141" width="61" height="48"/>
                     <color key="tintColor" systemColor="systemYellowColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="61" id="0Xg-Lo-ONc"/>
@@ -83,13 +65,13 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;text&gt;" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tF1-Mz-d2H">
-                    <rect key="frame" x="20" y="289" width="374" height="24"/>
+                    <rect key="frame" x="20" y="209" width="374" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tP0-ge-6bB">
-                    <rect key="frame" x="0.0" y="343" width="414" height="519"/>
+                    <rect key="frame" x="0.0" y="263" width="414" height="599"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -101,16 +83,14 @@
                 <constraint firstItem="tP0-ge-6bB" firstAttribute="top" secondItem="tF1-Mz-d2H" secondAttribute="bottom" constant="30" id="EX6-Nx-TDy"/>
                 <constraint firstItem="E99-tz-Z8g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="I8i-Ud-Ac6"/>
                 <constraint firstItem="tP0-ge-6bB" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Jf0-ve-Mvd"/>
-                <constraint firstItem="Df4-QT-9Uf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ocx-Ww-eu5"/>
+                <constraint firstItem="ZhY-3i-FF7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="XOD-Nm-CnQ"/>
                 <constraint firstItem="ZhY-3i-FF7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="102" id="XaX-t2-Mkh"/>
                 <constraint firstItem="tP0-ge-6bB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bfP-hV-Z4x"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZhY-3i-FF7" secondAttribute="trailing" constant="102" id="eu5-4s-Won"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UBI-rJ-D2I" secondAttribute="trailing" constant="20" id="gwa-eW-hr3"/>
-                <constraint firstItem="ZhY-3i-FF7" firstAttribute="top" secondItem="Df4-QT-9Uf" secondAttribute="bottom" constant="30" id="mEm-SI-dOT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tP0-ge-6bB" secondAttribute="bottom" id="syc-WI-ZBL"/>
                 <constraint firstItem="E99-tz-Z8g" firstAttribute="centerY" secondItem="UBI-rJ-D2I" secondAttribute="centerY" id="th5-AI-jxT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tF1-Mz-d2H" secondAttribute="trailing" constant="20" id="uHN-90-j2v"/>
-                <constraint firstItem="Df4-QT-9Uf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="xNw-o2-PK3"/>
                 <constraint firstItem="tF1-Mz-d2H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="zDm-H0-Tih"/>
             </constraints>
             <point key="canvasLocation" x="-4687" y="-1005"/>
@@ -118,14 +98,8 @@
     </objects>
     <resources>
         <image name="lightbulb.fill" catalog="system" width="113" height="128"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

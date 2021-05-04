@@ -47,6 +47,20 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
             " quizzes that contain the word NBA."
         getCategories(quizzes: quizzes)
         
+        //removes back button in navigation
+        navigationItem.hidesBackButton = true
+        //removes border from navigation bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        //sets the background color to the same as the rest of the screen
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = .systemIndigo
+        
+        let titleItem = UILabel()
+        titleItem.text = "PopQuiz"
+        titleItem.textColor = .white
+        titleItem.font = titleItem.font.withSize(20)
+        navigationItem.titleView = titleItem
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
