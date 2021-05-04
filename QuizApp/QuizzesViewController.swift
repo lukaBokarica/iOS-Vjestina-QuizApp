@@ -22,7 +22,11 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
             return quiz.category
         }
         quizTable.reloadData()
-        quizTable.isHidden = false
+        if(!quizzes.isEmpty) {
+            quizTable.isHidden = false
+        } else {
+            //add error sign and label
+        }
     }
     
     override func viewDidLoad() {
@@ -65,6 +69,11 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let quizCat = Array(quizzesByCategory.keys)[section]
+        let categoryName = quizCat.rawValue
+        return categoryName
+    }
     
     func getCategories(quizzes : [Quiz]) {
         var categories = Set<QuizCategory>()
