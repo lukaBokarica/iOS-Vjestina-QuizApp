@@ -41,6 +41,7 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         funFactLabel.text = "There are " + String(funFactNum) +
             " quizzes that contain the word NBA."
         getCategories(quizzes: quizzes)
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
