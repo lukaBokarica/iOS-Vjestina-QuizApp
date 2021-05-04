@@ -22,6 +22,7 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
             return quiz.category
         }
         quizTable.reloadData()
+        quizTable.isHidden = false
     }
     
     override func viewDidLoad() {
@@ -30,7 +31,7 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         quizTable.delegate = self
         quizTable.dataSource = self
         quizTable.backgroundColor = .clear
-        
+        quizTable.isHidden = true
         let ds = DataService()
         let quizzes = ds.fetchQuizes()
         quizzesByCategory = Dictionary(grouping: quizzes) { (quiz) -> QuizCategory in
