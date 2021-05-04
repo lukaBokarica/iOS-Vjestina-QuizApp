@@ -58,7 +58,6 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
             withIdentifier: TableViewCell.identifier,
             for: indexPath) as! TableViewCell
         let quizCat = Array(quizzesByCategory.keys)[indexPath.section]
-        
         cell.quizNameLabel.text = quizzesByCategory[quizCat]![indexPath.row].title
         cell.quizDescriptionLabel.text = quizzesByCategory[quizCat]![indexPath.row].description
         cell.quizDifficultyLabel!.text! = "Difficulty: " + String(quizzesByCategory[quizCat]![indexPath.row].level)

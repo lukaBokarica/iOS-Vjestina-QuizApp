@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="QuizApp">
             <connections>
                 <outlet property="loginButton" destination="HF9-nY-Tqe" id="Rgi-fg-vJO"/>
+                <outlet property="loginField" destination="dp0-oD-V1p" id="eRM-c4-IAj"/>
                 <outlet property="passwordField" destination="n0v-ah-5dF" id="JMJ-U6-4rC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,10 +22,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTl-hx-L1U">
-                    <rect key="frame" x="102" y="159" width="210" height="70"/>
+                    <rect key="frame" x="101" y="94" width="212.5" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="puv-pz-ecs" userLabel="height = 80"/>
-                        <constraint firstAttribute="width" constant="210" id="wS0-Z2-HtB"/>
+                        <constraint firstAttribute="height" constant="60" id="iI2-7r-AK1"/>
                     </constraints>
                     <attributedString key="attributedText">
                         <fragment content="PopQuiz">
@@ -40,10 +40,9 @@
                     <size key="shadowOffset" width="-3" height="6"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="dp0-oD-V1p">
-                    <rect key="frame" x="102" y="379" width="210" height="34"/>
+                    <rect key="frame" x="102" y="224" width="210" height="34"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="210" id="2JT-qg-NTE"/>
-                        <constraint firstAttribute="height" constant="34" id="NDt-gl-1Lf"/>
+                        <constraint firstAttribute="height" constant="34" id="Rkp-bG-7nr"/>
                     </constraints>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="username"/>
@@ -54,16 +53,14 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="usernameEntered:" destination="-1" eventType="editingDidEnd" id="9x3-rR-Cdm"/>
-                        <action selector="usernameFieldDeselected:" destination="-1" eventType="editingDidEnd" id="im6-2v-Iwv"/>
+                        <action selector="usernameFieldDeselected:" destination="-1" eventType="editingDidEnd" id="EEe-Tp-TX7"/>
                         <action selector="usernameFieldSelected:" destination="-1" eventType="editingDidBegin" id="l9c-YE-UAb"/>
                     </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="n0v-ah-5dF">
-                    <rect key="frame" x="102" y="443" width="210" height="34"/>
+                    <rect key="frame" x="102" y="288" width="210" height="34"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="CLZ-6y-v0B"/>
-                        <constraint firstAttribute="width" constant="210" id="N16-Xa-xMY"/>
                     </constraints>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
@@ -80,10 +77,9 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-nY-Tqe">
-                    <rect key="frame" x="102" y="522" width="210" height="34"/>
+                    <rect key="frame" x="102" y="362" width="210" height="34"/>
                     <color key="backgroundColor" systemColor="systemRedColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="210" id="1jk-kl-Vy4"/>
                         <constraint firstAttribute="height" constant="34" id="cUg-c6-G5n"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
@@ -106,16 +102,19 @@
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
             <color key="tintColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="HF9-nY-Tqe" firstAttribute="top" secondItem="n0v-ah-5dF" secondAttribute="bottom" constant="40" id="ANU-z0-No3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dp0-oD-V1p" secondAttribute="trailing" constant="102" id="CIn-hs-g4t"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="n0v-ah-5dF" secondAttribute="trailing" constant="102" id="OhI-zS-B6z"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HF9-nY-Tqe" secondAttribute="trailing" constant="102" id="PAj-zS-tCj"/>
+                <constraint firstItem="LTl-hx-L1U" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="Pua-hw-YNR"/>
                 <constraint firstItem="LTl-hx-L1U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Vf0-g7-zr3"/>
-                <constraint firstItem="LTl-hx-L1U" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="115" id="ZRN-bL-Wbj"/>
+                <constraint firstItem="dp0-oD-V1p" firstAttribute="top" secondItem="LTl-hx-L1U" secondAttribute="bottom" constant="70" id="VvQ-Z1-Rqw"/>
+                <constraint firstItem="dp0-oD-V1p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="102" id="dHS-1k-Gib"/>
                 <constraint firstItem="n0v-ah-5dF" firstAttribute="top" secondItem="dp0-oD-V1p" secondAttribute="bottom" constant="30" id="fJp-Ds-YqV"/>
                 <constraint firstItem="HF9-nY-Tqe" firstAttribute="leading" secondItem="n0v-ah-5dF" secondAttribute="leading" id="iJY-eD-8DA"/>
-                <constraint firstItem="dp0-oD-V1p" firstAttribute="leading" secondItem="LTl-hx-L1U" secondAttribute="leading" id="jsR-Zz-hLi"/>
                 <constraint firstItem="n0v-ah-5dF" firstAttribute="leading" secondItem="dp0-oD-V1p" secondAttribute="leading" id="kzd-gO-HNj"/>
-                <constraint firstItem="dp0-oD-V1p" firstAttribute="top" secondItem="LTl-hx-L1U" secondAttribute="bottom" constant="150" id="vy9-Ke-lzp"/>
-                <constraint firstItem="HF9-nY-Tqe" firstAttribute="top" secondItem="n0v-ah-5dF" secondAttribute="bottom" constant="45" id="wdS-Er-MnZ"/>
             </constraints>
-            <point key="canvasLocation" x="7" y="62"/>
+            <point key="canvasLocation" x="142" y="50"/>
         </view>
     </objects>
     <resources>
