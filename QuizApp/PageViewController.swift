@@ -9,16 +9,17 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource  {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        <#code#>
+        QuizViewController()
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        <#code#>
+        QuizViewController()
     }
     
     private let controllers: [UIViewController] = [
         QuizViewController()
     ]
+    
     private var displayedIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()

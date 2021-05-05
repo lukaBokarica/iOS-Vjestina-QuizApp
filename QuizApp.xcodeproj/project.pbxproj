@@ -17,6 +17,8 @@
 		5A1538282641C1D2007A19CF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1538262641C1D2007A19CF /* PageViewController.swift */; };
 		5A15382C2641C257007A19CF /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A15382A2641C257007A19CF /* QuizViewController.swift */; };
 		5A15382D2641C257007A19CF /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A15382B2641C257007A19CF /* QuizViewController.xib */; };
+		5A1538302642DAC8007A19CF /* StartQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A15382E2642DAC8007A19CF /* StartQuizViewController.swift */; };
+		5A1538312642DAC8007A19CF /* StartQuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A15382F2642DAC8007A19CF /* StartQuizViewController.xib */; };
 		5A4C4B4326275E73003D828D /* QuizzesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4C4B4226275E73003D828D /* QuizzesViewController.xib */; };
 		5A4C4B4626276AB2003D828D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C4B4426276AB2003D828D /* TableViewCell.swift */; };
 		5A4C4B4726276AB2003D828D /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4C4B4526276AB2003D828D /* TableViewCell.xib */; };
@@ -42,6 +44,8 @@
 		5A1538262641C1D2007A19CF /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		5A15382A2641C257007A19CF /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		5A15382B2641C257007A19CF /* QuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizViewController.xib; sourceTree = "<group>"; };
+		5A15382E2642DAC8007A19CF /* StartQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizViewController.swift; sourceTree = "<group>"; };
+		5A15382F2642DAC8007A19CF /* StartQuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartQuizViewController.xib; sourceTree = "<group>"; };
 		5A4C4B4226275E73003D828D /* QuizzesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuizzesViewController.xib; sourceTree = "<group>"; };
 		5A4C4B4426276AB2003D828D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		5A4C4B4526276AB2003D828D /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 				5A1538262641C1D2007A19CF /* PageViewController.swift */,
 				5A15382A2641C257007A19CF /* QuizViewController.swift */,
 				5A15382B2641C257007A19CF /* QuizViewController.xib */,
+				5A15382E2642DAC8007A19CF /* StartQuizViewController.swift */,
+				5A15382F2642DAC8007A19CF /* StartQuizViewController.xib */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A4C4B4326275E73003D828D /* QuizzesViewController.xib in Resources */,
+				5A1538312642DAC8007A19CF /* StartQuizViewController.xib in Resources */,
 				5A4C4B4726276AB2003D828D /* TableViewCell.xib in Resources */,
 				5A5FF0FE262354E60028D833 /* LaunchScreen.storyboard in Resources */,
 				5A15382D2641C257007A19CF /* QuizViewController.xib in Resources */,
@@ -233,6 +240,7 @@
 				5A15382026413E58007A19CF /* LoginStatus.swift in Sources */,
 				5A5FF0F4262354E10028D833 /* SceneDelegate.swift in Sources */,
 				5A1538282641C1D2007A19CF /* PageViewController.swift in Sources */,
+				5A1538302642DAC8007A19CF /* StartQuizViewController.swift in Sources */,
 				5A15381E26413E58007A19CF /* Quiz.swift in Sources */,
 				5A7C7D822626D54400278080 /* QuizzesViewController.swift in Sources */,
 				5A15382526413E66007A19CF /* DataService.swift in Sources */,

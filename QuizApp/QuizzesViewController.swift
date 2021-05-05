@@ -89,6 +89,14 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         return categoryName
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let quizCat = Array(quizzesByCategory.keys)[indexPath.section]
+        let quiz = quizzesByCategory[quizCat]![indexPath.row]
+        let vc = StartQuizViewController(quiz: quiz)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func getCategories(quizzes : [Quiz]) {
         var categories = Set<QuizCategory>()
         
