@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource  {
+class PageViewController: UIPageViewController  {
     
     private var controllers : [QuizViewController]!
     
@@ -15,25 +15,11 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource  
     
     private var answers = [Bool]()
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        return nil
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if(displayedIndex < controllers.count - 1) {
-            displayedIndex = displayedIndex + 1
-            controllers[displayedIndex].setInfo(questionNumber: displayedIndex + 1, questionCount: controllers.count)
-            return controllers[displayedIndex]
-        }
-        return nil
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         guard let firstVC = controllers.first else { return }
         firstVC.setInfo(questionNumber: displayedIndex + 1, questionCount: controllers.count)
-        dataSource = self
         setViewControllers([firstVC], direction: .forward, animated: true,
         completion: nil)
         
@@ -58,11 +44,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource  
     }
     
     func toNextArticle(){
-        guard let currentViewController = self.viewControllers?.first else { return }
-
-        guard let nextViewController = dataSource?.pageViewController(self, viewControllerAfter: currentViewController ) else { return }
-
-        // Has to be set like this, since else the delgates for the buttons won't work
+        let nextViewController = getNextController()!
+        
         setViewControllers([nextViewController], direction: .forward, animated: true, completion: { completed in self.delegate?.pageViewController?(self, didFinishAnimating: true, previousViewControllers: [], transitionCompleted: completed) })
     }
     
@@ -71,6 +54,14 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource  
         sceneDelegate?.goToResults(answers: answers)
     }
     
+    func getNextController() -> UIViewController? {
+        if(displayedIndex < controllers.count - 1) {
+            displayedIndex = displayedIndex + 1
+            controllers[displayedIndex].setInfo(questionNumber: displayedIndex + 1, questionCount: controllers.count)
+            return controllers[displayedIndex]
+        }
+        return nil
+    }
 }
 
 extension PageViewController: QuizViewControllerDelegate {
