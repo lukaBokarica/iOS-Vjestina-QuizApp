@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="firstAnswer" destination="9Qk-gu-O5g" id="om2-rA-UZe"/>
                 <outlet property="fourthAnswer" destination="D2D-kD-Oca" id="fiw-Ay-pcP"/>
+                <outlet property="nextButton" destination="kZv-12-Gz3" id="WQP-yz-pXZ"/>
                 <outlet property="questionLabel" destination="Drm-eu-zKT" id="qIR-AM-V53"/>
                 <outlet property="secondAnswer" destination="fDO-r4-a3C" id="htT-VI-bBt"/>
                 <outlet property="thirdAnswer" destination="KmF-NN-kX2" id="8cd-Ou-3SF"/>
@@ -43,6 +44,9 @@
                             <integer key="value" value="15"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="answerClicked:" destination="-1" eventType="touchUpInside" id="AJi-uS-Ghj"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDO-r4-a3C">
                     <rect key="frame" x="120" y="263" width="174" height="30"/>
@@ -58,6 +62,9 @@
                             <integer key="value" value="15"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="answerClicked:" destination="-1" eventType="touchUpInside" id="MZs-fA-yL8"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2D-kD-Oca">
                     <rect key="frame" x="120" y="383" width="174" height="30"/>
@@ -73,6 +80,9 @@
                             <integer key="value" value="15"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="answerClicked:" destination="-1" eventType="touchUpInside" id="8Oa-ii-MYU"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmF-NN-kX2">
                     <rect key="frame" x="120" y="323" width="174" height="30"/>
@@ -88,14 +98,37 @@
                             <integer key="value" value="15"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="answerClicked:" destination="-1" eventType="touchUpInside" id="ArA-im-la5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZv-12-Gz3">
+                    <rect key="frame" x="120" y="692" width="174" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="PiK-nI-7U5"/>
+                    </constraints>
+                    <state key="normal" title="Next">
+                        <color key="titleColor" systemColor="systemIndigoColor"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="nextClicked:" destination="-1" eventType="touchUpInside" id="XMk-pY-FbP"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kZv-12-Gz3" secondAttribute="trailing" constant="120" id="6ST-DO-HKR"/>
                 <constraint firstItem="Drm-eu-zKT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="72S-oZ-AqE"/>
                 <constraint firstItem="KmF-NN-kX2" firstAttribute="top" secondItem="fDO-r4-a3C" secondAttribute="bottom" constant="30" id="8lf-2K-QJ4"/>
                 <constraint firstItem="D2D-kD-Oca" firstAttribute="top" secondItem="KmF-NN-kX2" secondAttribute="bottom" constant="30" id="93z-4Y-MKI"/>
+                <constraint firstItem="kZv-12-Gz3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="120" id="94c-XF-Io0"/>
                 <constraint firstItem="D2D-kD-Oca" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="120" id="C4N-r3-o7i"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KmF-NN-kX2" secondAttribute="trailing" constant="120" id="FQv-rA-TYJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fDO-r4-a3C" secondAttribute="trailing" constant="120" id="HAX-9t-zrf"/>
@@ -105,6 +138,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Drm-eu-zKT" secondAttribute="trailing" constant="70" id="Qbo-pT-dEE"/>
                 <constraint firstItem="Drm-eu-zKT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="bEd-Uz-MZY"/>
                 <constraint firstItem="D2D-kD-Oca" firstAttribute="top" secondItem="KmF-NN-kX2" secondAttribute="bottom" constant="30" id="dnT-uO-uAI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kZv-12-Gz3" secondAttribute="bottom" constant="140" id="eqW-A0-c1w"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9Qk-gu-O5g" secondAttribute="trailing" constant="120" id="nVy-MS-Sc1"/>
                 <constraint firstItem="KmF-NN-kX2" firstAttribute="top" secondItem="fDO-r4-a3C" secondAttribute="bottom" constant="30" id="o0o-yD-t0z"/>
                 <constraint firstItem="fDO-r4-a3C" firstAttribute="top" secondItem="9Qk-gu-O5g" secondAttribute="bottom" constant="30" id="suc-py-k4Q"/>
@@ -112,7 +146,7 @@
                 <constraint firstItem="KmF-NN-kX2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="120" id="upC-pb-qf8"/>
                 <constraint firstItem="fDO-r4-a3C" firstAttribute="centerX" secondItem="9Qk-gu-O5g" secondAttribute="centerX" id="zTf-GW-PQm"/>
             </constraints>
-            <point key="canvasLocation" x="181" y="31"/>
+            <point key="canvasLocation" x="-133.33333333333334" y="43.526785714285715"/>
         </view>
     </objects>
     <resources>

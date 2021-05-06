@@ -21,6 +21,8 @@ class QuizViewController: UIViewController {
     
     @IBOutlet weak var fourthAnswer: UIButton!
     
+    @IBOutlet weak var nextButton: UIButton!
+    
     init(question : Question) {
         self.question = question
         super.init(nibName: nil, bundle: nil)
@@ -34,6 +36,7 @@ class QuizViewController: UIViewController {
         super.viewDidLoad()
         questionLabel.text = question.question
         setUpButtons()
+        nextButton.isHidden = true
     }
 
     
@@ -51,4 +54,47 @@ class QuizViewController: UIViewController {
         fourthAnswer.setTitle(question.answers[3], for: .normal)
         fourthAnswer.backgroundColor = fourthAnswer.backgroundColor?.withAlphaComponent(0.3)
     }
+    
+    @IBAction func answerClicked(_ sender: UIButton) {
+        disableButtons()
+        let answer = sender.titleLabel?.text
+        if(answer == question.answers[question.correctAnswer]) {
+            sender.backgroundColor = .green.withAlphaComponent(0.3)
+        }
+        else {
+            sender.backgroundColor = .red
+            let correctAnswerButton = findCorrectAnswer()
+            correctAnswerButton?.backgroundColor = .green.withAlphaComponent(0.3)
+        }
+        nextButton.isHidden = false
+    }
+    
+    
+    @IBAction func nextClicked(_ sender: UIButton) {
+        //go to next page
+    }
+    
+    func disableButtons() {
+        firstAnswer.isEnabled = false
+        secondAnswer.isEnabled = false
+        thirdAnswer.isEnabled = false
+        fourthAnswer.isEnabled = false
+    }
+    
+    func findCorrectAnswer() -> UIButton? {
+        switch question.answers[question.correctAnswer] {
+        case firstAnswer.titleLabel?.text:
+            return firstAnswer
+        case secondAnswer.titleLabel?.text:
+            return secondAnswer
+        case thirdAnswer.titleLabel?.text:
+            return thirdAnswer
+        case fourthAnswer.titleLabel?.text:
+            return fourthAnswer
+        default:
+            print("no correct answer")
+        }
+        return nil
+    }
+    
 }
