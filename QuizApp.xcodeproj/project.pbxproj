@@ -31,6 +31,8 @@
 		5A7C7D822626D54400278080 /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C7D802626D54400278080 /* QuizzesViewController.swift */; };
 		5AFC37922642FBD7008A133C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC37902642FBD7008A133C /* SettingsViewController.swift */; };
 		5AFC37932642FBD7008A133C /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFC37912642FBD7008A133C /* SettingsViewController.xib */; };
+		5AFC37982643FE1E008A133C /* QuizResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC37962643FE1E008A133C /* QuizResultViewController.swift */; };
+		5AFC37992643FE1E008A133C /* QuizResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFC37972643FE1E008A133C /* QuizResultViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		5A7C7D802626D54400278080 /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
 		5AFC37902642FBD7008A133C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5AFC37912642FBD7008A133C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		5AFC37962643FE1E008A133C /* QuizResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultViewController.swift; sourceTree = "<group>"; };
+		5AFC37972643FE1E008A133C /* QuizResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizResultViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				5A15382F2642DAC8007A19CF /* StartQuizViewController.xib */,
 				5AFC37902642FBD7008A133C /* SettingsViewController.swift */,
 				5AFC37912642FBD7008A133C /* SettingsViewController.xib */,
+				5AFC37962643FE1E008A133C /* QuizResultViewController.swift */,
+				5AFC37972643FE1E008A133C /* QuizResultViewController.xib */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -201,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A4C4B4326275E73003D828D /* QuizzesViewController.xib in Resources */,
+				5AFC37992643FE1E008A133C /* QuizResultViewController.xib in Resources */,
 				5A1538312642DAC8007A19CF /* StartQuizViewController.xib in Resources */,
 				5A4C4B4726276AB2003D828D /* TableViewCell.xib in Resources */,
 				5AFC37932642FBD7008A133C /* SettingsViewController.xib in Resources */,
@@ -243,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AFC37982643FE1E008A133C /* QuizResultViewController.swift in Sources */,
 				5A5FF0F2262354E10028D833 /* AppDelegate.swift in Sources */,
 				5A15382026413E58007A19CF /* LoginStatus.swift in Sources */,
 				5A5FF0F4262354E10028D833 /* SceneDelegate.swift in Sources */,

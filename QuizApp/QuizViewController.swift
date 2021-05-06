@@ -7,11 +7,18 @@
 
 import UIKit
 
+protocol QuizViewControllerDelegate: AnyObject {
+    func answered(answer : Bool)
+    func nextClicked()
+}
+
 class QuizViewController: UIViewController {
 
     private var question : Question
     
     @IBOutlet weak var questionLabel: UILabel!
+    
+    @IBOutlet weak var qstNumLabel: UILabel!
     
     @IBOutlet weak var firstAnswer: UIButton!
     
@@ -22,6 +29,12 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var fourthAnswer: UIButton!
     
     @IBOutlet weak var nextButton: UIButton!
+    
+    var delegate: QuizViewControllerDelegate?
+    
+    var questionNumber : Int?
+    
+    var questionCount : Int?
     
     init(question : Question) {
         self.question = question
@@ -37,6 +50,7 @@ class QuizViewController: UIViewController {
         questionLabel.text = question.question
         setUpButtons()
         nextButton.isHidden = true
+        qstNumLabel.text = String(questionNumber!) + "/" + String(questionCount!)
     }
 
     
@@ -60,18 +74,20 @@ class QuizViewController: UIViewController {
         let answer = sender.titleLabel?.text
         if(answer == question.answers[question.correctAnswer]) {
             sender.backgroundColor = .green.withAlphaComponent(0.3)
+            delegate?.answered(answer: true)
         }
         else {
             sender.backgroundColor = .red
             let correctAnswerButton = findCorrectAnswer()
             correctAnswerButton?.backgroundColor = .green.withAlphaComponent(0.3)
+            delegate?.answered(answer: false)
         }
         nextButton.isHidden = false
     }
     
     
     @IBAction func nextClicked(_ sender: UIButton) {
-        //go to next page
+        delegate?.nextClicked()
     }
     
     func disableButtons() {
@@ -97,4 +113,8 @@ class QuizViewController: UIViewController {
         return nil
     }
     
+    func setInfo(questionNumber : Int, questionCount : Int) {
+        self.questionNumber = questionNumber
+        self.questionCount = questionCount
+    }
 }

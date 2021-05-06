@@ -13,6 +13,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource  
     
     private var displayedIndex = 0
     
+    private var answers = [Bool]()
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         return nil
     }
@@ -20,9 +22,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource  
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if(displayedIndex < controllers.count - 1) {
             displayedIndex = displayedIndex + 1
-            return QuizViewController(question: controllers[displayedIndex].getQuestion())
+            controllers[displayedIndex].setInfo(questionNumber: displayedIndex + 1, questionCount: controllers.count)
+            return controllers[displayedIndex]
         }
-        //fix this return!!!! goes to quiz result page
         return nil
     }
     
@@ -30,7 +32,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource  
         super.viewDidLoad()
         view.backgroundColor = .white
         guard let firstVC = controllers.first else { return }
-        //postavljanje boje indikatora stranice
+        firstVC.setInfo(questionNumber: displayedIndex + 1, questionCount: controllers.count)
         dataSource = self
         setViewControllers([firstVC], direction: .forward, animated: true,
         completion: nil)
@@ -51,6 +53,36 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource  
     }
     
     func setPages(quizQuestionControllers : [QuizViewController]) {
+        quizQuestionControllers.forEach({$0.delegate = self})
         self.controllers = quizQuestionControllers
+    }
+    
+    func toNextArticle(){
+        guard let currentViewController = self.viewControllers?.first else { return }
+
+        guard let nextViewController = dataSource?.pageViewController(self, viewControllerAfter: currentViewController ) else { return }
+
+        // Has to be set like this, since else the delgates for the buttons won't work
+        setViewControllers([nextViewController], direction: .forward, animated: true, completion: { completed in self.delegate?.pageViewController?(self, didFinishAnimating: true, previousViewControllers: [], transitionCompleted: completed) })
+    }
+    
+    func goToResults(){
+        let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+        sceneDelegate?.goToResults(answers: answers)
+    }
+    
+}
+
+extension PageViewController: QuizViewControllerDelegate {
+    func nextClicked() {
+        if(displayedIndex < controllers.count - 1) {
+            toNextArticle()
+        } else {
+            goToResults()
+        }
+    }
+    
+    func answered(answer: Bool) {
+        answers.append(answer)
     }
 }
