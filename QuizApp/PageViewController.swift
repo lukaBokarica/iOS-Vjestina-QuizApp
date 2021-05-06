@@ -35,6 +35,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource  
         setViewControllers([firstVC], direction: .forward, animated: true,
         completion: nil)
         
+        let titleItem = UILabel()
+        titleItem.text = "PopQuiz"
+        titleItem.textColor = .white
+        titleItem.font = titleItem.font.withSize(20)
+        navigationItem.titleView = titleItem
+        
         let backArrow = UIImage(systemName: "chevron.backward")
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: backArrow, style: .done,
                                                            target: self, action: #selector(goBack))

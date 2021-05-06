@@ -17,15 +17,69 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pc-bu-crx">
+                    <rect key="frame" x="20" y="84" width="374" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="wtd-sg-e8X"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSn-zy-GIN">
+                    <rect key="frame" x="40" y="792" width="334" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="O9R-2E-Xt4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <state key="normal" title="Log out">
+                        <color key="titleColor" systemColor="systemRedColor"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="logoutClicked:" destination="-1" eventType="touchUpInside" id="Dr6-oc-Etg"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luka Bokarica" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4Z-z5-cC4">
+                    <rect key="frame" x="20" y="131" width="374" height="26.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26.5" id="DYS-xn-HLj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <point key="canvasLocation" x="158" y="36"/>
+            <constraints>
+                <constraint firstItem="9Pc-bu-crx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="3pH-T3-8iK"/>
+                <constraint firstItem="K4Z-z5-cC4" firstAttribute="top" secondItem="9Pc-bu-crx" secondAttribute="bottom" constant="25" id="BPd-9p-kWu"/>
+                <constraint firstItem="9Pc-bu-crx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="GXh-KQ-a2h"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K4Z-z5-cC4" secondAttribute="trailing" constant="20" id="Jcv-ac-bbj"/>
+                <constraint firstItem="K4Z-z5-cC4" firstAttribute="top" secondItem="9Pc-bu-crx" secondAttribute="bottom" constant="25" id="QFr-dB-SyL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9Pc-bu-crx" secondAttribute="trailing" constant="20" id="bul-lh-GIx"/>
+                <constraint firstItem="K4Z-z5-cC4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="gwz-Aq-xW2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jSn-zy-GIN" secondAttribute="bottom" constant="30" id="jCE-b0-1ez"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jSn-zy-GIN" secondAttribute="trailing" constant="40" id="jKR-UC-qQl"/>
+                <constraint firstItem="jSn-zy-GIN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="kIy-YJ-eZS"/>
+            </constraints>
+            <point key="canvasLocation" x="155.07246376811597" y="35.491071428571423"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
