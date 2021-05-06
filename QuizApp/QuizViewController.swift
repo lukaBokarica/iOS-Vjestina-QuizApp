@@ -2,7 +2,7 @@
 //  QuizViewController.swift
 //  QuizApp
 //
-//  Created by Pero Bokarica on 04.05.2021..
+//  Created by Luka Bokarica on 04.05.2021..
 //
 
 import UIKit
@@ -30,11 +30,17 @@ class QuizViewController: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     
+    @IBOutlet var questionTracker: UIStackView!
+    
     var delegate: QuizViewControllerDelegate?
     
     var questionNumber : Int?
     
     var questionCount : Int?
+    
+    let view1 : UIView = UIView()
+    
+    @IBOutlet weak var subview: UIView!
     
     init(question : Question) {
         self.question = question
@@ -47,6 +53,7 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         questionLabel.text = question.question
         setUpButtons()
         nextButton.isHidden = true
@@ -116,5 +123,47 @@ class QuizViewController: UIViewController {
     func setInfo(questionNumber : Int, questionCount : Int) {
         self.questionNumber = questionNumber
         self.questionCount = questionCount
+    }
+    
+    func updateQuestionTracker(answer : Bool, index : Int) {
+        let lastAnswer = questionTracker.arrangedSubviews[index]
+        switch answer {
+        case true:
+            print("tocno")
+            lastAnswer.backgroundColor = .green
+        default:
+            print("krivo")
+            lastAnswer.backgroundColor = .red
+        }
+    }
+    
+    func setUpQuestionTracker(answers : [Bool], index : Int) {
+        if index > 1 {
+            for i in 1...index - 1{
+                let subview = UIView()
+                let answer = answers[i - 1]
+                //print(answers[index - 2])
+                switch answer {
+                case true:
+                    subview.backgroundColor = .green.withAlphaComponent(0.4)
+                case false:
+                    subview.backgroundColor = .red.withAlphaComponent(0.4)
+                }
+                subview.layer.cornerRadius = 10
+                //subview.widthAnchor.constraint(equalToConstant: 10).isActive = true
+                questionTracker.addArrangedSubview(subview)
+            }
+        }
+        let subview = UIView()
+        subview.backgroundColor = .white.withAlphaComponent(0.8)
+        subview.layer.cornerRadius = 10
+        questionTracker.addArrangedSubview(subview)
+        
+        for _ in index...questionCount! {
+            let subview = UIView()
+            subview.backgroundColor = .white.withAlphaComponent(0.4)
+            subview.layer.cornerRadius = 10
+            questionTracker.addArrangedSubview(subview)
+        }
     }
 }

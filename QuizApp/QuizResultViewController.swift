@@ -2,7 +2,7 @@
 //  QuizResultViewController.swift
 //  QuizApp
 //
-//  Created by Pero Bokarica on 06.05.2021..
+//  Created by Luka Bokarica on 06.05.2021..
 //
 
 import UIKit
