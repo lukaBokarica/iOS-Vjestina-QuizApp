@@ -47,8 +47,6 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
             " quizzes that contain the word NBA."
         getCategories(quizzes: quizzes)
         
-        //removes back button in navigation
-        navigationItem.hidesBackButton = true
         //removes border from navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginField.text = "ios-vjestina@five.agency"
         //removes border from navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -59,8 +60,8 @@ class LoginViewController: UIViewController {
         
         switch loginResult {
         case LoginStatus.success:
-            let vc = QuizzesViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
+            let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+            sceneDelegate?.goToApp()
         default:
             print(loginResult)
         }

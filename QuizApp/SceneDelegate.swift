@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene) // 2
         let vc = LoginViewController()
-        let navigationController = UINavigationController(rootViewController: vc)
-        window?.rootViewController = navigationController
+        //let navigationController = UINavigationController(rootViewController: vc)
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
         //let vc = QuizzesViewController() // 3
         //window!.rootViewController = vc // 4
@@ -55,6 +55,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    
+    func goToApp() {
+        let quizzesVC = QuizzesViewController()
+        quizzesVC.tabBarItem = UITabBarItem(title: "Quizzes", image: .add, selectedImage: .add)
+        let settingsVC = SettingsViewController()
+        settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: .add, selectedImage:
+        .add)
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [UINavigationController(rootViewController: quizzesVC), UINavigationController(rootViewController: settingsVC)]
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+    }
+    
+    func goToLogin() {
+        let vc = LoginViewController()
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+    }
 
 }
 

@@ -8,29 +8,43 @@
 import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource  {
+    
+    private var controllers : [QuizViewController]!
+    
+    private var displayedIndex = 0
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        QuizViewController()
+        return nil
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        QuizViewController()
+        if(displayedIndex < controllers.count - 1) {
+            displayedIndex = displayedIndex + 1
+            return QuizViewController(question: controllers[displayedIndex].getQuestion())
+        }
+        //fix this return!!!! goes to quiz result page
+        return nil
     }
     
-    private let controllers: [UIViewController] = [
-        QuizViewController()
-    ]
-    
-    private var displayedIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         guard let firstVC = controllers.first else { return }
         //postavljanje boje indikatora stranice
-        let pageAppearance = UIPageControl.appearance()
-        pageAppearance.currentPageIndicatorTintColor = .black
-        pageAppearance.pageIndicatorTintColor = .lightGray
         dataSource = self
         setViewControllers([firstVC], direction: .forward, animated: true,
         completion: nil)
+        
+        let backArrow = UIImage(systemName: "chevron.backward")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backArrow, style: .done,
+                                                           target: self, action: #selector(goBack))
+    }
+    
+    @objc func goBack() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func setPages(quizQuestionControllers : [QuizViewController]) {
+        self.controllers = quizQuestionControllers
     }
 }

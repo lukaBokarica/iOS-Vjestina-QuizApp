@@ -29,6 +29,8 @@
 		5A76486D26260A8000C2E8EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76486B26260A7F00C2E8EB /* LoginViewController.swift */; };
 		5A76486E26260A8000C2E8EB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A76486C26260A8000C2E8EB /* LoginViewController.xib */; };
 		5A7C7D822626D54400278080 /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C7D802626D54400278080 /* QuizzesViewController.swift */; };
+		5AFC37922642FBD7008A133C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC37902642FBD7008A133C /* SettingsViewController.swift */; };
+		5AFC37932642FBD7008A133C /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFC37912642FBD7008A133C /* SettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		5A76486B26260A7F00C2E8EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5A76486C26260A8000C2E8EB /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5A7C7D802626D54400278080 /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
+		5AFC37902642FBD7008A133C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5AFC37912642FBD7008A133C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 				5A15382B2641C257007A19CF /* QuizViewController.xib */,
 				5A15382E2642DAC8007A19CF /* StartQuizViewController.swift */,
 				5A15382F2642DAC8007A19CF /* StartQuizViewController.xib */,
+				5AFC37902642FBD7008A133C /* SettingsViewController.swift */,
+				5AFC37912642FBD7008A133C /* SettingsViewController.xib */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 				5A4C4B4326275E73003D828D /* QuizzesViewController.xib in Resources */,
 				5A1538312642DAC8007A19CF /* StartQuizViewController.xib in Resources */,
 				5A4C4B4726276AB2003D828D /* TableViewCell.xib in Resources */,
+				5AFC37932642FBD7008A133C /* SettingsViewController.xib in Resources */,
 				5A5FF0FE262354E60028D833 /* LaunchScreen.storyboard in Resources */,
 				5A15382D2641C257007A19CF /* QuizViewController.xib in Resources */,
 				5A5FF0FB262354E60028D833 /* Assets.xcassets in Resources */,
@@ -244,6 +251,7 @@
 				5A15381E26413E58007A19CF /* Quiz.swift in Sources */,
 				5A7C7D822626D54400278080 /* QuizzesViewController.swift in Sources */,
 				5A15382526413E66007A19CF /* DataService.swift in Sources */,
+				5AFC37922642FBD7008A133C /* SettingsViewController.swift in Sources */,
 				5A15382426413E66007A19CF /* DataServiceProtocol.swift in Sources */,
 				5A15382C2641C257007A19CF /* QuizViewController.swift in Sources */,
 				5A15382126413E58007A19CF /* QuizCategory.swift in Sources */,

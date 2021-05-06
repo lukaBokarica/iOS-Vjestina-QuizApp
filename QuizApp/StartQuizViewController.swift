@@ -9,12 +9,12 @@ import UIKit
 
 class StartQuizViewController: UIViewController {
     
-    var quiz_ : Quiz
+    var quiz : Quiz
     
     @IBOutlet weak var quizName: UILabel!
     
     init(quiz : Quiz) {
-        quiz_ = quiz
+        self.quiz = quiz
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,18 +31,34 @@ class StartQuizViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = .systemIndigo
         
+        let backArrow = UIImage(systemName: "chevron.backward")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backArrow, style: .done,
+                                                           target: self, action: #selector(goBack))
+        
+        self.navigationController?.navigationBar.tintColor = .white
+        
         let titleItem = UILabel()
         titleItem.text = "PopQuiz"
         titleItem.textColor = .white
         titleItem.font = titleItem.font.withSize(20)
         navigationItem.titleView = titleItem
         
-        quizName.text = quiz_.title
+        quizName.text = quiz.title
+    }
+    
+    @objc func goBack() {
+        navigationController?.popViewController(animated: true)
     }
 
     @IBAction func startQuizButtonClicked(_ sender: UIButton) {
         //must add quiz_ as argument to controller
         let vc = PageViewController()
+        let questions = quiz.questions
+        var quizViewControllers : [QuizViewController] = []
+        for question in questions {
+            quizViewControllers.append(QuizViewController(question: question))
+        }
+        vc.setPages(quizQuestionControllers: quizViewControllers)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
