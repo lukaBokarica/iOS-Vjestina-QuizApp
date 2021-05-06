@@ -11,6 +11,10 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var funFactLabel: UILabel!
     
+    @IBOutlet weak var funFactTitleLabel: UILabel!
+    
+    @IBOutlet weak var lighbulbImage: UIImageView!
+    
     @IBOutlet weak var quizTable: UITableView!
     
     var quizzesByCategory = Dictionary<QuizCategory,[Quiz]>()
@@ -24,6 +28,9 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         quizTable.reloadData()
         if(!quizzes.isEmpty) {
             quizTable.isHidden = false
+            funFactLabel.isHidden = false
+            lighbulbImage.isHidden = false
+            funFactTitleLabel.isHidden = false
         } else {
             //add error sign and label
         }
@@ -45,6 +52,9 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         let funFactNum = getFunFact(quizzes: quizzes)
         funFactLabel.text = "There are " + String(funFactNum) +
             " quizzes that contain the word NBA."
+        funFactLabel.isHidden = true
+        lighbulbImage.isHidden = true
+        funFactTitleLabel.isHidden = true
         getCategories(quizzes: quizzes)
         
         //removes border from navigation bar
@@ -78,6 +88,7 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.quizNameLabel.text = quizzesByCategory[quizCat]![indexPath.row].title
         cell.quizDescriptionLabel.text = quizzesByCategory[quizCat]![indexPath.row].description
         cell.quizDifficultyLabel!.text! = "Difficulty: " + String(quizzesByCategory[quizCat]![indexPath.row].level)
+        cell.selectionStyle = .none
         return cell
     }
     

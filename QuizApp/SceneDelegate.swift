@@ -57,11 +57,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     
     func goToApp() {
+        let quizBarImage = UIImage(systemName: "list.bullet.rectangle")
+        let settingsBarImage = UIImage(systemName: "gearshape")
+        
         let quizzesVC = QuizzesViewController()
-        quizzesVC.tabBarItem = UITabBarItem(title: "Quizzes", image: .add, selectedImage: .add)
+        quizzesVC.tabBarItem = UITabBarItem(title: "Quizzes", image: quizBarImage, selectedImage: quizBarImage)
         let settingsVC = SettingsViewController()
-        settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: .add, selectedImage:
-        .add)
+        settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: settingsBarImage, selectedImage: settingsBarImage)
+        
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [UINavigationController(rootViewController: quizzesVC), UINavigationController(rootViewController: settingsVC)]
         window?.rootViewController = tabBarController
