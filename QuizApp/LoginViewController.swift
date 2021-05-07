@@ -64,14 +64,13 @@ class LoginViewController: UIViewController {
     @IBAction func loginClicked(_ sender: UIButton) {
         //print("i was clicked!")
         let loginResult = DataService().login(email: loginField.text!, password: passwordField.text!)
-        //print(loginResult)
         
         switch loginResult {
         case LoginStatus.success:
             let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
             sceneDelegate?.goToApp()
         default:
-            loginFailedLabel.text = "Username or password incorrect..."
+            loginFailedLabel.text = "Username or password incorrect."
             loginFailedLabel.isHidden = false
         }
     }

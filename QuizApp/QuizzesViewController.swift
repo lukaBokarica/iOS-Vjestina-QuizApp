@@ -105,7 +105,7 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         let categoryName = quizCat.rawValue
         
         let headerView = UILabel()
-        headerView.text = "  " + categoryName
+        headerView.text = "    " + categoryName
         headerView.backgroundColor = UIColor.systemIndigo
         headerView.textColor = .white
         headerView.font = UIFont.boldSystemFont(ofSize: 20)
