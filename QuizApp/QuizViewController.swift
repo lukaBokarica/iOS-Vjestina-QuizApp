@@ -158,12 +158,13 @@ class QuizViewController: UIViewController {
         subview.backgroundColor = .white.withAlphaComponent(0.8)
         subview.layer.cornerRadius = 10
         questionTracker.addArrangedSubview(subview)
-        
-        for _ in index...questionCount! {
-            let subview = UIView()
-            subview.backgroundColor = .white.withAlphaComponent(0.4)
-            subview.layer.cornerRadius = 10
-            questionTracker.addArrangedSubview(subview)
+        if index <= questionCount! - 1 {
+            for _ in index...questionCount! - 1 {
+                let subview = UIView()
+                subview.backgroundColor = .white.withAlphaComponent(0.4)
+                subview.layer.cornerRadius = 10
+                questionTracker.addArrangedSubview(subview)
+            }
         }
     }
 }
