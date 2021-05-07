@@ -25,7 +25,7 @@ class TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        innerView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
         backgroundColor = .clear
         // Initialization code
     }

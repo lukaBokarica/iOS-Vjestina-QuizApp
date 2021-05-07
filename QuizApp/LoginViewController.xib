@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="QuizApp">
             <connections>
                 <outlet property="loginButton" destination="HF9-nY-Tqe" id="Rgi-fg-vJO"/>
+                <outlet property="loginFailedLabel" destination="cvb-2R-f9Y" id="t0m-Hx-Sy6"/>
                 <outlet property="loginField" destination="dp0-oD-V1p" id="eRM-c4-IAj"/>
                 <outlet property="passwordField" destination="n0v-ah-5dF" id="JMJ-U6-4rC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -53,6 +54,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <action selector="usernameEditingChanged:" destination="-1" eventType="editingChanged" id="w6k-7d-N6k"/>
                         <action selector="usernameFieldDeselected:" destination="-1" eventType="editingDidEnd" id="EEe-Tp-TX7"/>
                         <action selector="usernameFieldSelected:" destination="-1" eventType="editingDidBegin" id="l9c-YE-UAb"/>
                     </connections>
@@ -97,6 +99,13 @@
                         <action selector="loginClicked:" destination="-1" eventType="touchUpInside" id="GDX-I7-Rei"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvb-2R-f9Y">
+                    <rect key="frame" x="30" y="421" width="354" height="21.5"/>
+                    <color key="tintColor" systemColor="systemRedColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
@@ -104,11 +113,14 @@
             <constraints>
                 <constraint firstItem="HF9-nY-Tqe" firstAttribute="top" secondItem="n0v-ah-5dF" secondAttribute="bottom" constant="40" id="ANU-z0-No3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dp0-oD-V1p" secondAttribute="trailing" constant="102" id="CIn-hs-g4t"/>
+                <constraint firstItem="cvb-2R-f9Y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Gul-no-4KB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="n0v-ah-5dF" secondAttribute="trailing" constant="102" id="OhI-zS-B6z"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HF9-nY-Tqe" secondAttribute="trailing" constant="102" id="PAj-zS-tCj"/>
                 <constraint firstItem="LTl-hx-L1U" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="Pua-hw-YNR"/>
                 <constraint firstItem="LTl-hx-L1U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Vf0-g7-zr3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cvb-2R-f9Y" secondAttribute="trailing" constant="30" id="VvF-k8-TH9"/>
                 <constraint firstItem="dp0-oD-V1p" firstAttribute="top" secondItem="LTl-hx-L1U" secondAttribute="bottom" constant="70" id="VvQ-Z1-Rqw"/>
+                <constraint firstItem="cvb-2R-f9Y" firstAttribute="top" secondItem="HF9-nY-Tqe" secondAttribute="bottom" constant="25" id="XSl-Aa-fdx"/>
                 <constraint firstItem="dp0-oD-V1p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="102" id="dHS-1k-Gib"/>
                 <constraint firstItem="n0v-ah-5dF" firstAttribute="top" secondItem="dp0-oD-V1p" secondAttribute="bottom" constant="30" id="fJp-Ds-YqV"/>
                 <constraint firstItem="HF9-nY-Tqe" firstAttribute="leading" secondItem="n0v-ah-5dF" secondAttribute="leading" id="iJY-eD-8DA"/>

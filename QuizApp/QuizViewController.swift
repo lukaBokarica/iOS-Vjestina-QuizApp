@@ -57,6 +57,9 @@ class QuizViewController: UIViewController {
         questionLabel.text = question.question
         setUpButtons()
         nextButton.isHidden = true
+        if(questionNumber == questionCount) {
+            nextButton.setTitle("Show me results!", for: .normal)
+        }
         qstNumLabel.text = String(questionNumber!) + "/" + String(questionCount!)
     }
 
@@ -138,6 +141,7 @@ class QuizViewController: UIViewController {
     }
     
     func setUpQuestionTracker(answers : [Bool], index : Int) {
+        questionTracker.heightAnchor.constraint(equalToConstant: 5).isActive = true
         if index > 1 {
             for i in 1...index - 1{
                 let subview = UIView()
@@ -149,20 +153,19 @@ class QuizViewController: UIViewController {
                 case false:
                     subview.backgroundColor = .red.withAlphaComponent(0.4)
                 }
-                subview.layer.cornerRadius = 10
-                //subview.widthAnchor.constraint(equalToConstant: 10).isActive = true
+                subview.layer.cornerRadius = 5
                 questionTracker.addArrangedSubview(subview)
             }
         }
         let subview = UIView()
         subview.backgroundColor = .white.withAlphaComponent(0.8)
-        subview.layer.cornerRadius = 10
+        subview.layer.cornerRadius = 5
         questionTracker.addArrangedSubview(subview)
         if index <= questionCount! - 1 {
             for _ in index...questionCount! - 1 {
                 let subview = UIView()
                 subview.backgroundColor = .white.withAlphaComponent(0.4)
-                subview.layer.cornerRadius = 10
+                subview.layer.cornerRadius = 5
                 questionTracker.addArrangedSubview(subview)
             }
         }

@@ -69,6 +69,7 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         titleItem.textColor = .white
         titleItem.font = titleItem.font.withSize(20)
         navigationItem.titleView = titleItem
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,10 +93,25 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+      //  let quizCat = Array(quizzesByCategory.keys)[section]
+       // let categoryName = quizCat.rawValue
+        //return categoryName
+    //}
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         let quizCat = Array(quizzesByCategory.keys)[section]
         let categoryName = quizCat.rawValue
-        return categoryName
+        
+        let headerView = UILabel()
+        headerView.text = "  " + categoryName
+        headerView.backgroundColor = UIColor.systemIndigo
+        headerView.textColor = .white
+        headerView.font = UIFont.boldSystemFont(ofSize: 20)
+        //quizTable.tableHeaderView = headerView
+        
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
