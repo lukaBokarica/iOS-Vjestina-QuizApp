@@ -11,6 +11,8 @@ class StartQuizViewController: UIViewController {
     
     var quiz : Quiz
     
+    @IBOutlet weak var quizImageView: UIImageView!
+    
     @IBOutlet weak var quizName: UILabel!
     
     init(quiz : Quiz) {
@@ -44,6 +46,7 @@ class StartQuizViewController: UIViewController {
         navigationItem.titleView = titleItem
         
         quizName.text = quiz.title
+        setImage()
     }
     
     @objc func goBack() {
@@ -60,5 +63,33 @@ class StartQuizViewController: UIViewController {
         }
         vc.setPages(quizQuestionControllers: quizViewControllers)
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func setImage() {
+        let imageUrlString = quiz.imageUrl
+        
+        guard let imageUrl:URL = URL(string: imageUrlString) else {
+            return
+        }
+                
+        // Start background thread so that image loading does not make app unresponsive
+        DispatchQueue.global().async { [weak self] in
+                    
+            guard let self = self else { return }
+                        
+            guard let imageData = try? Data(contentsOf: imageUrl) else {
+                return
+            }
+                        
+            // When from a background thread, UI needs to be updated on main_queue
+            DispatchQueue.main.async {
+                let image = UIImage(data: imageData)
+                
+                self.quizImageView.image = image
+                
+                self.quizImageView.layer.cornerRadius = 30
+                self.quizImageView.clipsToBounds = true
+            }
+        }
     }
 }

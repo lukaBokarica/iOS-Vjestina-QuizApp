@@ -17,10 +17,17 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginFailedLabel: UILabel!
     
+    var networkService : NetworkServiceProtocol?
+    
+    var response : LoginResponse?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginField.text = "ios-vjestina@five.agency"
+        networkService = NetworkService()
+        
+        loginField.text = "username"
         loginFailedLabel.isHidden = true
+        
         //removes border from navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -62,17 +69,40 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginClicked(_ sender: UIButton) {
-        //print("i was clicked!")
-        let loginResult = DataService().login(email: loginField.text!, password: passwordField.text!)
-        
-        switch loginResult {
-        case LoginStatus.success:
-            let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
-            sceneDelegate?.goToApp()
-        default:
-            loginFailedLabel.text = "Username or password incorrect."
-            loginFailedLabel.isHidden = false
-        }
+        loginUser(username: loginField.text!, password: passwordField.text!)
     }
+    
+    func loginUser(username : String, password : String) {
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "iosquiz.herokuapp.com"
+        urlComponents.path = "/api/session"
+        
+        let queryItems = [URLQueryItem(name: "username", value: username), URLQueryItem(name: "password", value: password)]
+        urlComponents.queryItems = queryItems
+        
+        var request = URLRequest(url: urlComponents.url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        networkService!.executeUrlRequest(request) {(result: Result<LoginResponse, RequestError>) in
+            switch result {
+            case .failure(_):
+                    self.loginFailedLabel.text = "Username or password incorrect."
+                    self.loginFailedLabel.isHidden = false
+            case .success(let value):
+                    self.completed(value: value)
+            }
+        }
+        
+        
+    }
+    
+    func completed(value : LoginResponse) {
+        let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+        sceneDelegate?.goToApp()
+    }
+
     
 }

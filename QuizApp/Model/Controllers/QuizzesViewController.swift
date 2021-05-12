@@ -18,44 +18,31 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var quizTable: UITableView!
     
     var quizzesByCategory = Dictionary<QuizCategory,[Quiz]>()
-        
+    
+    var networkService : NetworkServiceProtocol?
+    
+    var data : [Quiz] = []
+    
+    var quizzes : [Quiz] = []
+    
     @IBAction func getQuizClicked(_ sender: UIButton) {
-        let ds = DataService()
-        let quizzes = ds.fetchQuizes()
-        quizzesByCategory = Dictionary(grouping: quizzes) { (quiz) -> QuizCategory in
-            return quiz.category
-        }
-        quizTable.reloadData()
-        if(!quizzes.isEmpty) {
-            quizTable.isHidden = false
-            funFactLabel.isHidden = false
-            lighbulbImage.isHidden = false
-            funFactTitleLabel.isHidden = false
-        } else {
-            //add error sign and label
-        }
+        fetchQuizzes()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         quizTable.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         quizTable.delegate = self
         quizTable.dataSource = self
         quizTable.backgroundColor = .clear
         quizTable.isHidden = true
-        let ds = DataService()
-        let quizzes = ds.fetchQuizes()
-        quizzesByCategory = Dictionary(grouping: quizzes) { (quiz) -> QuizCategory in
-            return quiz.category
-        }
         
-        let funFactNum = getFunFact(quizzes: quizzes)
-        funFactLabel.text = "There are " + String(funFactNum) +
-            " quizzes that contain the word NBA."
+        networkService = NetworkService()
+        
         funFactLabel.isHidden = true
         lighbulbImage.isHidden = true
         funFactTitleLabel.isHidden = true
-        getCategories(quizzes: quizzes)
         
         //removes border from navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -69,7 +56,7 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         titleItem.textColor = .white
         titleItem.font = titleItem.font.withSize(20)
         navigationItem.titleView = titleItem
-        
+                
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -90,14 +77,9 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.quizDescriptionLabel.text = quizzesByCategory[quizCat]![indexPath.row].description
         cell.quizDifficultyLabel!.text! = "Difficulty: " + String(quizzesByCategory[quizCat]![indexPath.row].level)
         cell.selectionStyle = .none
+        
         return cell
     }
-    
-    //func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-      //  let quizCat = Array(quizzesByCategory.keys)[section]
-       // let categoryName = quizCat.rawValue
-        //return categoryName
-    //}
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -109,7 +91,6 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
         headerView.backgroundColor = UIColor.systemIndigo
         headerView.textColor = .white
         headerView.font = UIFont.boldSystemFont(ofSize: 20)
-        //quizTable.tableHeaderView = headerView
         
         return headerView
     }
@@ -141,5 +122,50 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         return stringAppearanceCounter
+    }
+    
+    
+    func showErrorLabel() {
+        DispatchQueue.main.async { [self] in
+            quizTable.isHidden = true
+            funFactLabel.isHidden = true
+            lighbulbImage.isHidden = true
+            funFactTitleLabel.isHidden = true
+            
+            //add error label methods
+        }
+    }
+    
+    func fetchQuizzes() {
+        guard let url = URL(string: "https://iosquiz.herokuapp.com/api/quizzes") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                
+        networkService!.executeUrlRequest(request) {(result: Result<QuizzesResponse, RequestError>) in
+            switch result {
+            case .failure(_):
+                self.showErrorLabel()
+            case .success(let value):
+                self.completed(quizzes: value.quizzes)
+            }
+        }
+    }
+    
+    func completed(quizzes: [Quiz]) {
+        self.quizzes = quizzes
+        
+        quizzesByCategory = Dictionary(grouping: quizzes) { (quiz) -> QuizCategory in
+            return quiz.category
+        }
+        quizTable.reloadData()
+            
+        quizTable.isHidden = false
+        funFactLabel.isHidden = false
+        lighbulbImage.isHidden = false
+        funFactTitleLabel.isHidden = false
+        let funFactNum = self.getFunFact(quizzes: quizzes)
+        funFactLabel.text = "There are " + String(funFactNum) +
+        " quizzes that contain the word NBA."
     }
 }

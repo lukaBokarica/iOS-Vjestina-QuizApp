@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartQuizViewController" customModule="QuizApp" customModuleProvider="target">
             <connections>
+                <outlet property="quizImageView" destination="wmc-gX-Q2f" id="Ca4-y2-Hzo"/>
                 <outlet property="quizName" destination="siO-fU-KOK" id="FBT-c8-USp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,16 +21,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZgO-ZZ-uob">
-                    <rect key="frame" x="70" y="231" width="274" height="398"/>
+                    <rect key="frame" x="50" y="134" width="314" height="638"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siO-fU-KOK">
-                            <rect key="frame" x="50" y="30" width="174" height="26.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <rect key="frame" x="50" y="30" width="214" height="31.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-gX-Q2f">
+                            <rect key="frame" x="20" y="111.5" width="274" height="422.5"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlh-a2-GnA">
-                            <rect key="frame" x="50" y="86.5" width="174" height="34"/>
+                            <rect key="frame" x="50" y="584" width="214" height="34"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="Start Quiz">
@@ -47,24 +57,28 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     <constraints>
+                        <constraint firstItem="wmc-gX-Q2f" firstAttribute="leading" secondItem="ZgO-ZZ-uob" secondAttribute="leading" constant="20" id="00u-7I-yyI"/>
                         <constraint firstAttribute="trailing" secondItem="qlh-a2-GnA" secondAttribute="trailing" constant="50" id="5u9-F0-StF"/>
-                        <constraint firstItem="qlh-a2-GnA" firstAttribute="top" secondItem="siO-fU-KOK" secondAttribute="bottom" constant="30" id="UWh-cq-IF8"/>
+                        <constraint firstItem="qlh-a2-GnA" firstAttribute="top" secondItem="wmc-gX-Q2f" secondAttribute="bottom" constant="50" id="DXW-Br-rl1"/>
+                        <constraint firstItem="wmc-gX-Q2f" firstAttribute="top" secondItem="siO-fU-KOK" secondAttribute="bottom" constant="50" id="IxL-7O-f4I"/>
+                        <constraint firstAttribute="bottom" secondItem="qlh-a2-GnA" secondAttribute="bottom" constant="20" id="Ogu-rl-X1E"/>
                         <constraint firstItem="qlh-a2-GnA" firstAttribute="leading" secondItem="ZgO-ZZ-uob" secondAttribute="leading" constant="50" id="VhB-dI-UrQ"/>
                         <constraint firstItem="siO-fU-KOK" firstAttribute="leading" secondItem="ZgO-ZZ-uob" secondAttribute="leading" constant="50" id="Vig-Ss-IO5"/>
                         <constraint firstItem="siO-fU-KOK" firstAttribute="top" secondItem="ZgO-ZZ-uob" secondAttribute="top" constant="30" id="YF5-yj-ljR"/>
                         <constraint firstAttribute="trailing" secondItem="siO-fU-KOK" secondAttribute="trailing" constant="50" id="f0k-NX-fSa"/>
+                        <constraint firstAttribute="trailing" secondItem="wmc-gX-Q2f" secondAttribute="trailing" constant="20" id="hMb-IK-kns"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
             <constraints>
-                <constraint firstItem="ZgO-ZZ-uob" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="187" id="NXc-hb-fis"/>
-                <constraint firstItem="ZgO-ZZ-uob" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="OsB-cm-PJV"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZgO-ZZ-uob" secondAttribute="bottom" constant="233" id="PeT-ax-0Ew"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZgO-ZZ-uob" secondAttribute="trailing" constant="70" id="udz-Af-8ja"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZgO-ZZ-uob" secondAttribute="trailing" constant="50" id="OVH-F1-a96"/>
+                <constraint firstItem="ZgO-ZZ-uob" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="h2Y-Ha-ATz"/>
+                <constraint firstItem="ZgO-ZZ-uob" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="k9a-ep-zGi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZgO-ZZ-uob" secondAttribute="bottom" constant="90" id="u0S-HV-NcS"/>
             </constraints>
-            <point key="canvasLocation" x="74" y="13"/>
+            <point key="canvasLocation" x="73.913043478260875" y="12.723214285714285"/>
         </view>
     </objects>
     <resources>

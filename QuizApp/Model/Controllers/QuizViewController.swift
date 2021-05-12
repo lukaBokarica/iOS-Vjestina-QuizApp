@@ -141,7 +141,6 @@ class QuizViewController: UIViewController {
     }
     
     func setUpQuestionTracker(answers : [Bool], index : Int) {
-        questionTracker.heightAnchor.constraint(equalToConstant: 5).isActive = true
         if index > 1 {
             for i in 1...index - 1{
                 let subview = UIView()

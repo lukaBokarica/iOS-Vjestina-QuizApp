@@ -74,7 +74,7 @@
                 <outlet property="quizDifficultyLabel" destination="mp7-Vj-0Xs" id="3M8-Zu-GPf"/>
                 <outlet property="quizNameLabel" destination="79i-M5-svs" id="P08-vb-tHN"/>
             </connections>
-            <point key="canvasLocation" x="95" y="-6"/>
+            <point key="canvasLocation" x="201" y="12"/>
         </tableViewCell>
     </objects>
     <resources>

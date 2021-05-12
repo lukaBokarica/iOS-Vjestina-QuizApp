@@ -16,7 +16,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var quizDescriptionLabel: UILabel!
     
     @IBOutlet weak var quizDifficultyLabel: UILabel!
-    
+        
     static func nib() -> UINib {
             return UINib(nibName: "TableViewCell", bundle: nil)
     }
