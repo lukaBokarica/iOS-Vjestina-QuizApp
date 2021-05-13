@@ -35,6 +35,7 @@
 		5A76A6B0264C658400974E08 /* ResultSendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6AF264C658400974E08 /* ResultSendResponse.swift */; };
 		5A76A6B2264C661A00974E08 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6B1264C661A00974E08 /* Resource.swift */; };
 		5A76A6B8264D442E00974E08 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6B7264D442E00974E08 /* LoginPresenter.swift */; };
+		5A76A6D2264D57DF00974E08 /* QuizzesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6D1264D57DF00974E08 /* QuizzesPresenter.swift */; };
 		5A7C7D822626D54400278080 /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C7D802626D54400278080 /* QuizzesViewController.swift */; };
 		5AFC37922642FBD7008A133C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC37902642FBD7008A133C /* SettingsViewController.swift */; };
 		5AFC37932642FBD7008A133C /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFC37912642FBD7008A133C /* SettingsViewController.xib */; };
@@ -75,6 +76,7 @@
 		5A76A6AF264C658400974E08 /* ResultSendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSendResponse.swift; sourceTree = "<group>"; };
 		5A76A6B1264C661A00974E08 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		5A76A6B7264D442E00974E08 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		5A76A6D1264D57DF00974E08 /* QuizzesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesPresenter.swift; sourceTree = "<group>"; };
 		5A7C7D802626D54400278080 /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
 		5AFC37902642FBD7008A133C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5AFC37912642FBD7008A133C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -124,14 +126,13 @@
 		5A5FF0F0262354E10028D833 /* QuizApp */ = {
 			isa = PBXGroup;
 			children = (
+				5A76A6B9264D525800974E08 /* LoginFeature */,
+				5A76A6BD264D52D000974E08 /* QuizSelectionFeature */,
+				5A76A6C2264D547700974E08 /* QuizQuestionsFeature */,
 				5A76A6CC264D561400974E08 /* QuizResultFeature */,
 				5A76A6C7264D556300974E08 /* SettingsFeature */,
-				5A76A6C2264D547700974E08 /* QuizQuestionsFeature */,
-				5A76A6BD264D52D000974E08 /* QuizSelectionFeature */,
-				5A76A6B9264D525800974E08 /* LoginFeature */,
 				5A76A6B5264D439500974E08 /* DataSource */,
 				5A5FF0FA262354E60028D833 /* Assets.xcassets */,
-				5A55BDD4264ADA5F006D2A9C /* NetworkService.swift */,
 				5A55BDD8264ADB6E006D2A9C /* RequestError.swift */,
 				5A5FF0FC262354E60028D833 /* LaunchScreen.storyboard */,
 				5A5FF0F1262354E10028D833 /* AppDelegate.swift */,
@@ -144,6 +145,7 @@
 		5A76A6B5264D439500974E08 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				5A55BDD4264ADA5F006D2A9C /* NetworkService.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -237,6 +239,7 @@
 		5A76A6C1264D53FE00974E08 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				5A76A6D1264D57DF00974E08 /* QuizzesPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				5A55BDDF264C0E36006D2A9C /* UserCredentials.swift in Sources */,
 				5A76A6B8264D442E00974E08 /* LoginPresenter.swift in Sources */,
 				5AFC37982643FE1E008A133C /* QuizResultViewController.swift in Sources */,
+				5A76A6D2264D57DF00974E08 /* QuizzesPresenter.swift in Sources */,
 				5A5FF0F2262354E10028D833 /* AppDelegate.swift in Sources */,
 				5A15382026413E58007A19CF /* LoginStatus.swift in Sources */,
 				5A5FF0F4262354E10028D833 /* SceneDelegate.swift in Sources */,
