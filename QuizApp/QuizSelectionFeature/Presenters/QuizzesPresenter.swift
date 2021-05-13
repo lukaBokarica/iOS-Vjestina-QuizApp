@@ -102,7 +102,8 @@ class QuizzesPresenter: NSObject, UITableViewDataSource {
     {
         let quizCat = Array(quizzesByCategory.keys)[indexPath.section]
         let quiz = quizzesByCategory[quizCat]![indexPath.row]
-        let vc = StartQuizViewController(quiz: quiz)
+        let vc = StartQuizViewController()
+        vc.setQuiz(quiz: quiz)
         self.quizzesViewDelegate?.pushStartQuiz(startQuizController: vc)
     }
     

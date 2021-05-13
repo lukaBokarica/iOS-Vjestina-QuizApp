@@ -12,7 +12,7 @@ protocol QuizViewControllerDelegate: AnyObject {
     func nextClicked()
 }
 
-class QuizViewController: UIViewController {
+class QuizViewController: UIViewController, QuizViewDelegate {
 
     private var question : Question
     
@@ -34,16 +34,18 @@ class QuizViewController: UIViewController {
     
     var delegate: QuizViewControllerDelegate?
     
-    var questionNumber : Int?
-    
-    var questionCount : Int?
-    
     let view1 : UIView = UIView()
     
     @IBOutlet weak var subview: UIView!
     
+    private let quizViewPresenter = QuizViewPresenter()
+
+    private var buttonArray : [UIButton]
+    
     init(question : Question) {
         self.question = question
+        quizViewPresenter.setQuestion(question: question)
+        buttonArray = []
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,15 +56,22 @@ class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        quizViewPresenter.setViewDelegate(quizViewDelegate: self)
+                
+        setupButtonArray()
+        
+        initialSetup()
+    }
+
+    func initialSetup() {
         questionLabel.text = question.question
         setUpButtons()
         nextButton.isHidden = true
-        if(questionNumber == questionCount) {
+        if(quizViewPresenter.getQuestionNumber() == quizViewPresenter.getQuestionCount()) {
             nextButton.setTitle("Show me results!", for: .normal)
         }
-        qstNumLabel.text = String(questionNumber!) + "/" + String(questionCount!)
+        qstNumLabel.text = String(quizViewPresenter.getQuestionNumber()) + "/" + String(quizViewPresenter.getQuestionCount())
     }
-
     
     func getQuestion() -> Question {
         return question
@@ -79,22 +88,23 @@ class QuizViewController: UIViewController {
         fourthAnswer.backgroundColor = fourthAnswer.backgroundColor?.withAlphaComponent(0.3)
     }
     
+    func setupButtonArray() {
+        buttonArray = [firstAnswer, secondAnswer, thirdAnswer, fourthAnswer]
+    }
+    
     @IBAction func answerClicked(_ sender: UIButton) {
         disableButtons()
-        let answer = sender.titleLabel?.text
-        if(answer == question.answers[question.correctAnswer]) {
+        let correctAnswerButton = buttonArray[quizViewPresenter.findCorrectAnswer()!]
+        if(correctAnswerButton == sender) {
             sender.backgroundColor = .green.withAlphaComponent(0.3)
             delegate?.answered(answer: true)
-        }
-        else {
+        } else {
             sender.backgroundColor = .red
-            let correctAnswerButton = findCorrectAnswer()
-            correctAnswerButton?.backgroundColor = .green.withAlphaComponent(0.3)
+            correctAnswerButton.backgroundColor = .green.withAlphaComponent(0.3)
             delegate?.answered(answer: false)
         }
         nextButton.isHidden = false
     }
-    
     
     @IBAction func nextClicked(_ sender: UIButton) {
         delegate?.nextClicked()
@@ -107,25 +117,8 @@ class QuizViewController: UIViewController {
         fourthAnswer.isEnabled = false
     }
     
-    func findCorrectAnswer() -> UIButton? {
-        switch question.answers[question.correctAnswer] {
-        case firstAnswer.titleLabel?.text:
-            return firstAnswer
-        case secondAnswer.titleLabel?.text:
-            return secondAnswer
-        case thirdAnswer.titleLabel?.text:
-            return thirdAnswer
-        case fourthAnswer.titleLabel?.text:
-            return fourthAnswer
-        default:
-            print("no correct answer")
-        }
-        return nil
-    }
-    
     func setInfo(questionNumber : Int, questionCount : Int) {
-        self.questionNumber = questionNumber
-        self.questionCount = questionCount
+        quizViewPresenter.setInfo(questionNumber: questionNumber, questionCount: questionCount)
     }
     
     func updateQuestionTracker(answer : Bool, index : Int) {
@@ -160,8 +153,8 @@ class QuizViewController: UIViewController {
         subview.backgroundColor = .white.withAlphaComponent(0.8)
         subview.layer.cornerRadius = 5
         questionTracker.addArrangedSubview(subview)
-        if index <= questionCount! - 1 {
-            for _ in index...questionCount! - 1 {
+        if index <= quizViewPresenter.getQuestionCount() - 1 {
+            for _ in index...quizViewPresenter.getQuestionCount() - 1 {
                 let subview = UIView()
                 subview.backgroundColor = .white.withAlphaComponent(0.4)
                 subview.layer.cornerRadius = 5

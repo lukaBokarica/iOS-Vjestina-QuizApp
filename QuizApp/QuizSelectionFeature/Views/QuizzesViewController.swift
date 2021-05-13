@@ -18,7 +18,7 @@ class QuizzesViewController: UIViewController, QuizzesViewDelegate, UITableViewD
     @IBOutlet weak var quizTable: UITableView!
 
     private let quizzesPresenter = QuizzesPresenter(networkService: NetworkService())
-        
+    
     @IBAction func getQuizClicked(_ sender: UIButton) {
         quizzesPresenter.fetchQuizzes()
     }

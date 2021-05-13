@@ -2,30 +2,32 @@
 //  StartQuizViewController.swift
 //  QuizApp
 //
-//  Created by Pero Bokarica on 05.05.2021..
+//  Created by Luka Bokarica on 05.05.2021..
 //
 
 import UIKit
 
-class StartQuizViewController: UIViewController {
-    
-    var quiz : Quiz
-    
+class StartQuizViewController: UIViewController, StartQuizViewDelegate {
+        
     @IBOutlet weak var quizImageView: UIImageView!
     
     @IBOutlet weak var quizName: UILabel!
     
-    init(quiz : Quiz) {
-        self.quiz = quiz
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    private let startQuizPresenter = StartQuizPresenter()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        startQuizPresenter.setViewDelegate(startQuizViewDelegate: self)
+        
+        initialSetup()
+    }
+    
+    func setQuiz(quiz: Quiz) {
+        startQuizPresenter.setQuiz(quiz: quiz)
+    }
+    
+    func initialSetup() {
         //removes border from navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -45,7 +47,7 @@ class StartQuizViewController: UIViewController {
         titleItem.font = titleItem.font.withSize(20)
         navigationItem.titleView = titleItem
         
-        quizName.text = quiz.title
+        quizName.text = startQuizPresenter.getQuiz().title
         setImage()
     }
     
@@ -54,20 +56,12 @@ class StartQuizViewController: UIViewController {
     }
 
     @IBAction func startQuizButtonClicked(_ sender: UIButton) {
-        //must add quiz_ as argument to controller
-        let vc = PageViewController()
-        let questions = quiz.questions
-        var quizViewControllers : [QuizViewController] = []
-        for question in questions {
-            quizViewControllers.append(QuizViewController(question: question))
-        }
-        vc.setPages(quizQuestionControllers: quizViewControllers)
-        vc.setQuiz(quiz: quiz)
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = startQuizPresenter.executeQuizStarting()
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     func setImage() {
-        let imageUrlString = quiz.imageUrl
+        let imageUrlString = startQuizPresenter.getQuiz().imageUrl
         
         guard let imageUrl:URL = URL(string: imageUrlString) else {
             return

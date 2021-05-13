@@ -36,7 +36,10 @@
 		5A76A6B2264C661A00974E08 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6B1264C661A00974E08 /* Resource.swift */; };
 		5A76A6B8264D442E00974E08 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6B7264D442E00974E08 /* LoginPresenter.swift */; };
 		5A76A6D2264D57DF00974E08 /* QuizzesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6D1264D57DF00974E08 /* QuizzesPresenter.swift */; };
+		5A76A6D4264D675B00974E08 /* StartQuizPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6D3264D675B00974E08 /* StartQuizPresenter.swift */; };
+		5A76A6D6264D765F00974E08 /* PageViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6D5264D765F00974E08 /* PageViewPresenter.swift */; };
 		5A7C7D822626D54400278080 /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C7D802626D54400278080 /* QuizzesViewController.swift */; };
+		5A96418F264D85D90085192D /* QuizViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96418E264D85D90085192D /* QuizViewPresenter.swift */; };
 		5AFC37922642FBD7008A133C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC37902642FBD7008A133C /* SettingsViewController.swift */; };
 		5AFC37932642FBD7008A133C /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFC37912642FBD7008A133C /* SettingsViewController.xib */; };
 		5AFC37982643FE1E008A133C /* QuizResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC37962643FE1E008A133C /* QuizResultViewController.swift */; };
@@ -77,7 +80,10 @@
 		5A76A6B1264C661A00974E08 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		5A76A6B7264D442E00974E08 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		5A76A6D1264D57DF00974E08 /* QuizzesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesPresenter.swift; sourceTree = "<group>"; };
+		5A76A6D3264D675B00974E08 /* StartQuizPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizPresenter.swift; sourceTree = "<group>"; };
+		5A76A6D5264D765F00974E08 /* PageViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewPresenter.swift; sourceTree = "<group>"; };
 		5A7C7D802626D54400278080 /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
+		5A96418E264D85D90085192D /* QuizViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewPresenter.swift; sourceTree = "<group>"; };
 		5AFC37902642FBD7008A133C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5AFC37912642FBD7008A133C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		5AFC37962643FE1E008A133C /* QuizResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				5A76A6D1264D57DF00974E08 /* QuizzesPresenter.swift */,
+				5A76A6D3264D675B00974E08 /* StartQuizPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -258,6 +265,8 @@
 		5A76A6C3264D549300974E08 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				5A76A6D5264D765F00974E08 /* PageViewPresenter.swift */,
+				5A96418E264D85D90085192D /* QuizViewPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -482,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A76A6D6264D765F00974E08 /* PageViewPresenter.swift in Sources */,
 				5A55BDD7264ADABB006D2A9C /* Result.swift in Sources */,
 				5A55BDDF264C0E36006D2A9C /* UserCredentials.swift in Sources */,
 				5A76A6B8264D442E00974E08 /* LoginPresenter.swift in Sources */,
@@ -496,6 +506,8 @@
 				5A76A6B2264C661A00974E08 /* Resource.swift in Sources */,
 				5A55BDD5264ADA5F006D2A9C /* NetworkService.swift in Sources */,
 				5A1538302642DAC8007A19CF /* StartQuizViewController.swift in Sources */,
+				5A96418F264D85D90085192D /* QuizViewPresenter.swift in Sources */,
+				5A76A6D4264D675B00974E08 /* StartQuizPresenter.swift in Sources */,
 				5A15381E26413E58007A19CF /* Quiz.swift in Sources */,
 				5A7C7D822626D54400278080 /* QuizzesViewController.swift in Sources */,
 				5AFC37922642FBD7008A133C /* SettingsViewController.swift in Sources */,
