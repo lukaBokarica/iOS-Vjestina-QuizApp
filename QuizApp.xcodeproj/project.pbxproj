@@ -34,6 +34,8 @@
 		5A5FF0FE262354E60028D833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5FF0FC262354E60028D833 /* LaunchScreen.storyboard */; };
 		5A76486D26260A8000C2E8EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76486B26260A7F00C2E8EB /* LoginViewController.swift */; };
 		5A76486E26260A8000C2E8EB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A76486C26260A8000C2E8EB /* LoginViewController.xib */; };
+		5A76A6B0264C658400974E08 /* ResultSendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6AF264C658400974E08 /* ResultSendResponse.swift */; };
+		5A76A6B2264C661A00974E08 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6B1264C661A00974E08 /* Resource.swift */; };
 		5A7C7D822626D54400278080 /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C7D802626D54400278080 /* QuizzesViewController.swift */; };
 		5AFC37922642FBD7008A133C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC37902642FBD7008A133C /* SettingsViewController.swift */; };
 		5AFC37932642FBD7008A133C /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFC37912642FBD7008A133C /* SettingsViewController.xib */; };
@@ -73,6 +75,8 @@
 		5A5FF0FF262354E60028D833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A76486B26260A7F00C2E8EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5A76486C26260A8000C2E8EB /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		5A76A6AF264C658400974E08 /* ResultSendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSendResponse.swift; sourceTree = "<group>"; };
+		5A76A6B1264C661A00974E08 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		5A7C7D802626D54400278080 /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
 		5AFC37902642FBD7008A133C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5AFC37912642FBD7008A133C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -140,8 +144,10 @@
 				5A15381C26413E57007A19CF /* LoginStatus.swift */,
 				5A4C4B4426276AB2003D828D /* TableViewCell.swift */,
 				5A55BDD6264ADABB006D2A9C /* Result.swift */,
+				5A76A6B1264C661A00974E08 /* Resource.swift */,
 				5A55BDD8264ADB6E006D2A9C /* RequestError.swift */,
 				5A55BDDA264BE1B9006D2A9C /* QuizzesResponse.swift */,
+				5A76A6AF264C658400974E08 /* ResultSendResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,7 +313,9 @@
 				5A15382026413E58007A19CF /* LoginStatus.swift in Sources */,
 				5A5FF0F4262354E10028D833 /* SceneDelegate.swift in Sources */,
 				5A1538282641C1D2007A19CF /* PageViewController.swift in Sources */,
+				5A76A6B0264C658400974E08 /* ResultSendResponse.swift in Sources */,
 				5A55BDDB264BE1B9006D2A9C /* QuizzesResponse.swift in Sources */,
+				5A76A6B2264C661A00974E08 /* Resource.swift in Sources */,
 				5A55BDD5264ADA5F006D2A9C /* NetworkService.swift in Sources */,
 				5A1538302642DAC8007A19CF /* StartQuizViewController.swift in Sources */,
 				5A15381E26413E58007A19CF /* Quiz.swift in Sources */,

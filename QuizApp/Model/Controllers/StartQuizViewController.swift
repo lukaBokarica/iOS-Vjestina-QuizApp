@@ -62,6 +62,7 @@ class StartQuizViewController: UIViewController {
             quizViewControllers.append(QuizViewController(question: question))
         }
         vc.setPages(quizQuestionControllers: quizViewControllers)
+        vc.setQuiz(quiz: quiz)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

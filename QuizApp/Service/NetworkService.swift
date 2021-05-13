@@ -22,7 +22,7 @@ class NetworkService: NetworkServiceProtocol {
                 }
                 return
             }
-            
+
             guard let httpResponse = response as? HTTPURLResponse,
                 (200...299).contains(httpResponse.statusCode) else {
                 DispatchQueue.main.async {
@@ -46,10 +46,13 @@ class NetworkService: NetworkServiceProtocol {
             }
             
             DispatchQueue.main.async {
+                print("!")
                 completionHandler(.success(value))
             }
             
         }
+        
         dataTask.resume()
+        print("!!!!")
     }
 }

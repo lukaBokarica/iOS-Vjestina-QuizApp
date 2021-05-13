@@ -70,33 +70,38 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginClicked(_ sender: UIButton) {
         loginUser(username: loginField.text!, password: passwordField.text!)
+        print("!!!")
     }
     
     func loginUser(username : String, password : String) {
-        
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "iosquiz.herokuapp.com"
-        urlComponents.path = "/api/session"
-        
-        let queryItems = [URLQueryItem(name: "username", value: username), URLQueryItem(name: "password", value: password)]
-        urlComponents.queryItems = queryItems
-        
-        var request = URLRequest(url: urlComponents.url!)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        networkService!.executeUrlRequest(request) {(result: Result<LoginResponse, RequestError>) in
-            switch result {
-            case .failure(_):
+        DispatchQueue.global().async {
+            var urlComponents = URLComponents()
+            urlComponents.scheme = "https"
+            urlComponents.host = "iosquiz.herokuapp.com"
+            urlComponents.path = "/api/session"
+            
+            let queryItems = [URLQueryItem(name: "username", value: username), URLQueryItem(name: "password", value: password)]
+            urlComponents.queryItems = queryItems
+            
+            var request = URLRequest(url: urlComponents.url!)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            self.networkService!.executeUrlRequest(request) {(result: Result<LoginResponse, RequestError>) in
+                print("!!")
+                switch result {
+                case .failure(_):
                     self.loginFailedLabel.text = "Username or password incorrect."
                     self.loginFailedLabel.isHidden = false
-            case .success(let value):
+                case .success(let value):
+                    print("usao")
+                    let defaults = UserDefaults.standard
+                    defaults.set(value.token, forKey: "Token")
+                    defaults.set(value.user_id, forKey: "UserId")
                     self.completed(value: value)
+                }
             }
         }
-        
-        
     }
     
     func completed(value : LoginResponse) {

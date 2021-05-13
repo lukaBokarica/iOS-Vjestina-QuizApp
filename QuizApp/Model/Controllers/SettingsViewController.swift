@@ -29,6 +29,10 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func logoutClicked(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "Token")
+        defaults.removeObject(forKey: "UserId")
+        
         let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
         sceneDelegate?.goToLogin()
     }

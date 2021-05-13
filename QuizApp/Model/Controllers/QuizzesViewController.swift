@@ -137,17 +137,19 @@ class QuizzesViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func fetchQuizzes() {
-        guard let url = URL(string: "https://iosquiz.herokuapp.com/api/quizzes") else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                
-        networkService!.executeUrlRequest(request) {(result: Result<QuizzesResponse, RequestError>) in
-            switch result {
-            case .failure(_):
-                self.showErrorLabel()
-            case .success(let value):
-                self.completed(quizzes: value.quizzes)
+        DispatchQueue.global().async {
+            guard let url = URL(string: "https://iosquiz.herokuapp.com/api/quizzes") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                    
+            self.networkService!.executeUrlRequest(request) {(result: Result<QuizzesResponse, RequestError>) in
+                switch result {
+                case .failure(_):
+                    self.showErrorLabel()
+                case .success(let value):
+                    self.completed(quizzes: value.quizzes)
+                }
             }
         }
     }
