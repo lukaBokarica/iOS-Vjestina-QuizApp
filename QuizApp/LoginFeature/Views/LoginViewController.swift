@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, LoginViewDelegate {
         
     @IBOutlet weak var loginButton: UIButton!
     
@@ -16,15 +16,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginField: UITextField!
     
     @IBOutlet weak var loginFailedLabel: UILabel!
-    
-    var networkService : NetworkServiceProtocol?
-    
-    var response : LoginResponse?
+        
+    private let loginPresenter = LoginPresenter(networkService: NetworkService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService = NetworkService()
+        loginPresenter.setViewDelegate(loginViewDelegate: self)
         
+        initialSetup()
+    }
+    
+    func initialSetup() {
         loginField.text = "username"
         loginFailedLabel.isHidden = true
         
@@ -34,7 +36,6 @@ class LoginViewController: UIViewController {
         //sets the background color to the same as the rest of the screen
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = .systemIndigo
-
     }
     
     @IBAction func usernameEditingChanged(_ sender: UITextField) {
@@ -69,45 +70,17 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginClicked(_ sender: UIButton) {
-        loginUser(username: loginField.text!, password: passwordField.text!)
-        print("!!!")
+        loginPresenter.loginUser(username: loginField.text!, password: passwordField.text!)
+        //loginUser(username: loginField.text!, password: passwordField.text!)
     }
     
-    func loginUser(username : String, password : String) {
-        DispatchQueue.global().async {
-            var urlComponents = URLComponents()
-            urlComponents.scheme = "https"
-            urlComponents.host = "iosquiz.herokuapp.com"
-            urlComponents.path = "/api/session"
-            
-            let queryItems = [URLQueryItem(name: "username", value: username), URLQueryItem(name: "password", value: password)]
-            urlComponents.queryItems = queryItems
-            
-            var request = URLRequest(url: urlComponents.url!)
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            
-            self.networkService!.executeUrlRequest(request) {(result: Result<LoginResponse, RequestError>) in
-                print("!!")
-                switch result {
-                case .failure(_):
-                    self.loginFailedLabel.text = "Username or password incorrect."
-                    self.loginFailedLabel.isHidden = false
-                case .success(let value):
-                    print("usao")
-                    let defaults = UserDefaults.standard
-                    defaults.set(value.token, forKey: "Token")
-                    defaults.set(value.user_id, forKey: "UserId")
-                    self.completed(value: value)
-                }
-            }
-        }
-    }
-    
-    func completed(value : LoginResponse) {
+    func successfulLogin() {
         let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
         sceneDelegate?.goToApp()
     }
-
     
+    func unsuccessfulLogin() {
+        self.loginFailedLabel.text = "Username or password incorrect."
+        self.loginFailedLabel.isHidden = false
+    }
 }

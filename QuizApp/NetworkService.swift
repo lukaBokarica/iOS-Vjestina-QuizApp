@@ -2,7 +2,7 @@
 //  NetworkService.swift
 //  QuizApp
 //
-//  Created by Pero Bokarica on 11.05.2021..
+//  Created by Luka Bokarica on 11.05.2021..
 //
 
 import UIKit
@@ -46,13 +46,11 @@ class NetworkService: NetworkServiceProtocol {
             }
             
             DispatchQueue.main.async {
-                print("!")
                 completionHandler(.success(value))
             }
             
         }
         
         dataTask.resume()
-        print("!!!!")
     }
 }

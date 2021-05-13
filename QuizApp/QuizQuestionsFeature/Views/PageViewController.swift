@@ -113,7 +113,7 @@ class PageViewController: UIPageViewController  {
                 switch result {
                 case .failure(let error):
                     print(error)
-                case .success(let value):
+                case .success(_):
                     print("USPJEH")
                 }
             }
