@@ -7,14 +7,17 @@
 
 import UIKit
 
-class QuizResultViewController: UIViewController {
+class QuizResultViewController: UIViewController, QuizResultViewDelegate {
 
     private var answers : [Bool]
     
     @IBOutlet weak var resultLabel: UILabel!
     
+    private let quizResultPresenter = QuizResultPresenter()
+
     init(answers : [Bool]) {
         self.answers = answers
+        quizResultPresenter.setAnswers(answers: answers)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,19 +27,13 @@ class QuizResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultLabel.text = String(countTrue()) + "/" + String(answers.count)
-        // Do any additional setup after loading the view.
+
+        quizResultPresenter.setViewDelegate(quizResultViewDelegate: self)
+
+        resultLabel.text = String(quizResultPresenter.countTrue()) + "/" + String(answers.count)
     }
 
-    func countTrue() -> Int {
-        var count = 0
-        for answer in answers {
-            if answer == true {
-                count = count + 1
-            }
-        }
-        return count
-    }
+    
     @IBAction func finishQuizClicked(_ sender: UIButton) {
         let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
         sceneDelegate?.goToApp()

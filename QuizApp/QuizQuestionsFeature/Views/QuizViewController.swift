@@ -96,11 +96,11 @@ class QuizViewController: UIViewController, QuizViewDelegate {
         disableButtons()
         let correctAnswerButton = buttonArray[quizViewPresenter.findCorrectAnswer()!]
         if(correctAnswerButton == sender) {
-            sender.backgroundColor = .green.withAlphaComponent(0.3)
+            sender.backgroundColor = .green.withAlphaComponent(0.6)
             delegate?.answered(answer: true)
         } else {
-            sender.backgroundColor = .red
-            correctAnswerButton.backgroundColor = .green.withAlphaComponent(0.3)
+            sender.backgroundColor = .red.withAlphaComponent(0.6)
+            correctAnswerButton.backgroundColor = .green.withAlphaComponent(0.6)
             delegate?.answered(answer: false)
         }
         nextButton.isHidden = false
@@ -125,10 +125,8 @@ class QuizViewController: UIViewController, QuizViewDelegate {
         let lastAnswer = questionTracker.arrangedSubviews[index]
         switch answer {
         case true:
-            print("tocno")
             lastAnswer.backgroundColor = .green
         default:
-            print("krivo")
             lastAnswer.backgroundColor = .red
         }
     }

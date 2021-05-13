@@ -12,6 +12,10 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       initialSetup()
+    }
+    
+    func initialSetup() {
         //removes border from navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -24,9 +28,7 @@ class SettingsViewController: UIViewController {
         titleItem.textColor = .white
         titleItem.font = titleItem.font.withSize(20)
         navigationItem.titleView = titleItem
-        // Do any additional setup after loading the view.
     }
-    
     
     @IBAction func logoutClicked(_ sender: UIButton) {
         let defaults = UserDefaults.standard

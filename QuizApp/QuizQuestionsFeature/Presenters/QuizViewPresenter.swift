@@ -38,7 +38,6 @@ class QuizViewPresenter {
     }
     
     func findCorrectAnswer() -> Int? {
-        print(question?.correctAnswer)
         return question?.correctAnswer
     }
     
