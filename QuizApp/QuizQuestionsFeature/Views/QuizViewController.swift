@@ -32,7 +32,7 @@ class QuizViewController: UIViewController, QuizViewDelegate {
     
     @IBOutlet var questionTracker: UIStackView!
     
-    var delegate: QuizViewControllerDelegate?
+    weak var delegate: QuizViewControllerDelegate?
     
     let view1 : UIView = UIView()
     

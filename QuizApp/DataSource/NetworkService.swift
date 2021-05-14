@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Network
 
 protocol NetworkServiceProtocol {
     func executeUrlRequest<T: Codable>(_ request: URLRequest, completionHandler: @escaping (Result<T, RequestError>) -> Void)
@@ -13,7 +14,32 @@ protocol NetworkServiceProtocol {
 
 class NetworkService: NetworkServiceProtocol {
     
+    let monitor = NWPathMonitor()
+
+    var internetConnectionAvailable : Bool? = false
+    
+    init() {
+        self.monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                self.internetConnectionAvailable = true
+            } else {
+                self.internetConnectionAvailable = false
+            }
+            //print(path.isExpensive)
+        }
+        let queue = DispatchQueue(label: "Monitor")
+        monitor.start(queue: queue)
+    }
+    
     func executeUrlRequest<T: Codable>(_ request: URLRequest, completionHandler: @escaping (Result<T, RequestError>) -> Void) {
+        //novo!!!
+        if(!self.internetConnectionAvailable!) {
+            DispatchQueue.main.async {
+                completionHandler(.failure(.noInternetConnection))
+            }
+            return
+        }
+        
         let dataTask = URLSession.shared.dataTask(with: request) { data, response,
         err in
             guard err == nil else {

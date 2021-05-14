@@ -83,4 +83,9 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         self.loginFailedLabel.text = "Username or password incorrect."
         self.loginFailedLabel.isHidden = false
     }
+    
+    func noInternetConnectionWarning() {
+        self.loginFailedLabel.text = "No internet connection!"
+        self.loginFailedLabel.isHidden = false
+    }
 }

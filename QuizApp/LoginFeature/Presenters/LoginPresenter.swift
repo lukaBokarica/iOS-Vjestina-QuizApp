@@ -10,6 +10,7 @@ import UIKit
 protocol LoginViewDelegate: NSObjectProtocol {
     func successfulLogin()
     func unsuccessfulLogin()
+    func noInternetConnectionWarning()
 }
 
 class LoginPresenter {
@@ -17,9 +18,9 @@ class LoginPresenter {
     private let networkService: NetworkServiceProtocol
     
     weak private var loginViewDelegate : LoginViewDelegate?
-    
+        
     init(networkService:NetworkService){
-            self.networkService = networkService
+        self.networkService = networkService
     }
     
     func setViewDelegate(loginViewDelegate:LoginViewDelegate?){
@@ -42,8 +43,14 @@ class LoginPresenter {
             
             self.networkService.executeUrlRequest(request) {(result: Result<LoginResponse, RequestError>) in
                 switch result {
-                case .failure(_):
-                    self.loginViewDelegate?.unsuccessfulLogin()
+                case .failure(let error):
+                    print(error)
+                    switch error {
+                    case .noInternetConnection:
+                        self.loginViewDelegate?.noInternetConnectionWarning()
+                    default:
+                        self.loginViewDelegate?.unsuccessfulLogin()
+                    }
                 case .success(let value):
                     let defaults = UserDefaults.standard
                     defaults.set(value.token, forKey: "Token")
