@@ -29,7 +29,6 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     func initialSetup() {
         loginField.text = "username"
         loginFailedLabel.isHidden = true
-        
         //removes border from navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

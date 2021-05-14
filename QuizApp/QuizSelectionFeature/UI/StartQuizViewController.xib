@@ -39,7 +39,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlh-a2-GnA">
-                            <rect key="frame" x="50" y="584" width="214" height="34"/>
+                            <rect key="frame" x="20" y="584" width="274" height="34"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="Start Quiz">
@@ -58,15 +58,15 @@
                     <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     <constraints>
                         <constraint firstItem="wmc-gX-Q2f" firstAttribute="leading" secondItem="ZgO-ZZ-uob" secondAttribute="leading" constant="20" id="00u-7I-yyI"/>
-                        <constraint firstAttribute="trailing" secondItem="qlh-a2-GnA" secondAttribute="trailing" constant="50" id="5u9-F0-StF"/>
                         <constraint firstItem="qlh-a2-GnA" firstAttribute="top" secondItem="wmc-gX-Q2f" secondAttribute="bottom" constant="50" id="DXW-Br-rl1"/>
                         <constraint firstItem="wmc-gX-Q2f" firstAttribute="top" secondItem="siO-fU-KOK" secondAttribute="bottom" constant="50" id="IxL-7O-f4I"/>
                         <constraint firstAttribute="bottom" secondItem="qlh-a2-GnA" secondAttribute="bottom" constant="20" id="Ogu-rl-X1E"/>
-                        <constraint firstItem="qlh-a2-GnA" firstAttribute="leading" secondItem="ZgO-ZZ-uob" secondAttribute="leading" constant="50" id="VhB-dI-UrQ"/>
                         <constraint firstItem="siO-fU-KOK" firstAttribute="leading" secondItem="ZgO-ZZ-uob" secondAttribute="leading" constant="50" id="Vig-Ss-IO5"/>
                         <constraint firstItem="siO-fU-KOK" firstAttribute="top" secondItem="ZgO-ZZ-uob" secondAttribute="top" constant="30" id="YF5-yj-ljR"/>
                         <constraint firstAttribute="trailing" secondItem="siO-fU-KOK" secondAttribute="trailing" constant="50" id="f0k-NX-fSa"/>
+                        <constraint firstItem="qlh-a2-GnA" firstAttribute="leading" secondItem="ZgO-ZZ-uob" secondAttribute="leading" constant="20" id="hJT-EB-cr0"/>
                         <constraint firstAttribute="trailing" secondItem="wmc-gX-Q2f" secondAttribute="trailing" constant="20" id="hMb-IK-kns"/>
+                        <constraint firstAttribute="trailing" secondItem="qlh-a2-GnA" secondAttribute="trailing" constant="20" id="piG-ac-gWB"/>
                     </constraints>
                 </view>
             </subviews>
@@ -78,7 +78,7 @@
                 <constraint firstItem="ZgO-ZZ-uob" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="k9a-ep-zGi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZgO-ZZ-uob" secondAttribute="bottom" constant="90" id="u0S-HV-NcS"/>
             </constraints>
-            <point key="canvasLocation" x="73.913043478260875" y="12.723214285714285"/>
+            <point key="canvasLocation" x="22" y="-153"/>
         </view>
     </objects>
     <resources>

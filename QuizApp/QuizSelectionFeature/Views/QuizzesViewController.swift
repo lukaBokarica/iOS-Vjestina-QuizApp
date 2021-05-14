@@ -17,6 +17,10 @@ class QuizzesViewController: UIViewController, QuizzesViewDelegate, UITableViewD
     
     @IBOutlet weak var quizTable: UITableView!
 
+    @IBOutlet weak var errorLabel: UILabel!
+        
+    @IBOutlet weak var networkSign: UIImageView!
+    
     private let quizzesPresenter = QuizzesPresenter(networkService: NetworkService())
     
     @IBAction func getQuizClicked(_ sender: UIButton) {
@@ -38,6 +42,8 @@ class QuizzesViewController: UIViewController, QuizzesViewDelegate, UITableViewD
         quizTable.backgroundColor = .clear
         quizTable.isHidden = true
         
+        errorLabel.isHidden = true
+        networkSign.isHidden = true
         funFactLabel.isHidden = true
         lighbulbImage.isHidden = true
         funFactTitleLabel.isHidden = true
@@ -88,7 +94,8 @@ class QuizzesViewController: UIViewController, QuizzesViewDelegate, UITableViewD
             lighbulbImage.isHidden = true
             funFactTitleLabel.isHidden = true
             
-            //add error label methods
+            errorLabel.isHidden = false
+            networkSign.isHidden = false
         }
     }
     
@@ -97,6 +104,9 @@ class QuizzesViewController: UIViewController, QuizzesViewDelegate, UITableViewD
         
         quizTable.reloadData()
             
+        errorLabel.isHidden = true
+        networkSign.isHidden = true
+        
         quizTable.isHidden = false
         funFactLabel.isHidden = false
         lighbulbImage.isHidden = false

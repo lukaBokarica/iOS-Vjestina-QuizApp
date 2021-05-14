@@ -17,12 +17,22 @@ class QuizResultPresenter: NSObject {
 
     private var answers : [Bool]?
 
+    var quiz: Quiz?
+    
     func setViewDelegate(quizResultViewDelegate:QuizResultViewDelegate?) {
         self.quizResultViewDelegate = quizResultViewDelegate
     }
     
     func setAnswers(answers: [Bool]) {
         self.answers = answers
+    }
+    
+    func setQuiz(quiz: Quiz) {
+        self.quiz = quiz
+    }
+    
+    func getQuiz() -> Quiz? {
+        return quiz
     }
     
     func countTrue() -> Int {

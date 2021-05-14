@@ -62,7 +62,7 @@ class PageViewController: UIPageViewController, PageViewDelegate  {
         pageViewPresenter.handleEndOfQuiz()
         
         let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
-        sceneDelegate?.goToResults(answers: pageViewPresenter.getAnswers())
+        sceneDelegate?.goToResults(answers: pageViewPresenter.getAnswers(), quiz: pageViewPresenter.getQuiz())
     }
 
 }

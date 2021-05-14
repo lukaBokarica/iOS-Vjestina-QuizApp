@@ -77,9 +77,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
     
-    func goToResults(answers : [Bool]) {
+    func goToResults(answers : [Bool], quiz: Quiz) {
+        let nvc  = UINavigationController()
         let vc = QuizResultViewController(answers: answers)
-        window?.rootViewController = vc
+        vc.setQuiz(quiz: quiz)
+        
+        nvc.viewControllers = [vc]
+        window?.rootViewController = nvc
         window?.makeKeyAndVisible()
     }
 

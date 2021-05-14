@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="57" id="KGk-i7-Jjw" customClass="LeaderBoardCellView" customModule="QuizApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="57"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="416" height="57"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jy1-cn-hdy">
+                        <rect key="frame" x="5" y="25" width="42" height="7"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54k-Bh-VXz">
+                        <rect key="frame" x="67" y="25" width="42" height="7"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3J-gp-yU2">
+                        <rect key="frame" x="359" y="25" width="42" height="7"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="jy1-cn-hdy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="1GB-gA-xsk"/>
+                    <constraint firstItem="jy1-cn-hdy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="2zL-as-FVI"/>
+                    <constraint firstAttribute="bottom" secondItem="jy1-cn-hdy" secondAttribute="bottom" constant="25" id="4w0-68-tgw"/>
+                    <constraint firstItem="54k-Bh-VXz" firstAttribute="centerY" secondItem="Z3J-gp-yU2" secondAttribute="centerY" id="Idr-nt-qp1"/>
+                    <constraint firstAttribute="bottom" secondItem="Z3J-gp-yU2" secondAttribute="bottom" constant="25" id="J67-TE-EHz"/>
+                    <constraint firstAttribute="trailing" secondItem="Z3J-gp-yU2" secondAttribute="trailing" constant="15" id="M4H-FN-HlB"/>
+                    <constraint firstItem="54k-Bh-VXz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="csb-rj-Mck"/>
+                    <constraint firstItem="54k-Bh-VXz" firstAttribute="leading" secondItem="jy1-cn-hdy" secondAttribute="trailing" constant="20" id="e0F-wY-bb9"/>
+                    <constraint firstItem="Z3J-gp-yU2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="mvO-o2-RvA"/>
+                    <constraint firstAttribute="bottom" secondItem="54k-Bh-VXz" secondAttribute="bottom" constant="25" id="yxY-Xu-lca"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="userRankLabel" destination="jy1-cn-hdy" id="YNB-eS-lbg"/>
+                <outlet property="userScoreLabel" destination="Z3J-gp-yU2" id="dSL-Pj-iwz"/>
+                <outlet property="usernameLabel" destination="54k-Bh-VXz" id="zmd-Rs-dvR"/>
+            </connections>
+            <point key="canvasLocation" x="121.73913043478262" y="120.20089285714285"/>
+        </tableViewCell>
+    </objects>
+</document>

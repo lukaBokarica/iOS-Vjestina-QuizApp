@@ -30,9 +30,31 @@ class QuizResultViewController: UIViewController, QuizResultViewDelegate {
 
         quizResultPresenter.setViewDelegate(quizResultViewDelegate: self)
 
+        initialSetup()
+    }
+    
+    func setQuiz(quiz: Quiz) {
+        quizResultPresenter.setQuiz(quiz: quiz)
+    }
+    
+    func initialSetup() {
         resultLabel.text = String(quizResultPresenter.countTrue()) + "/" + String(answers.count)
+        //removes border from navigation bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        //sets the background color to the same as the rest of the screen
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = .systemIndigo
     }
 
+    
+    @IBAction func seeLeaderboardClicked(_ sender: UIButton) {
+        let vc = LeaderboardViewController()
+        vc.setQuiz(quiz: quizResultPresenter.getQuiz()!)
+        let nvc = UINavigationController()
+        nvc.viewControllers = [vc]
+        self.navigationController?.present(nvc, animated: true, completion: nil)
+    }
     
     @IBAction func finishQuizClicked(_ sender: UIButton) {
         let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate

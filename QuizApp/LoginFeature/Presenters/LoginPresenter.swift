@@ -44,7 +44,6 @@ class LoginPresenter {
             self.networkService.executeUrlRequest(request) {(result: Result<LoginResponse, RequestError>) in
                 switch result {
                 case .failure(let error):
-                    print(error)
                     switch error {
                     case .noInternetConnection:
                         self.loginViewDelegate?.noInternetConnectionWarning()
@@ -54,6 +53,7 @@ class LoginPresenter {
                 case .success(let value):
                     let defaults = UserDefaults.standard
                     defaults.set(value.token, forKey: "Token")
+                    print(value.token)
                     defaults.set(value.user_id, forKey: "UserId")
                     self.loginViewDelegate?.successfulLogin()
                 }

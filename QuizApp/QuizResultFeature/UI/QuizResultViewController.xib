@@ -29,7 +29,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9p-kf-PCb">
-                    <rect key="frame" x="30" y="796" width="354" height="36"/>
+                    <rect key="frame" x="30" y="771" width="354" height="36"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Finish Quiz">
@@ -44,14 +44,33 @@
                         <action selector="finishQuizClicked:" destination="-1" eventType="touchUpInside" id="9QX-lw-F2C"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbw-n2-e0I">
+                    <rect key="frame" x="30" y="715" width="354" height="36"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="See Leaderboard">
+                        <color key="titleColor" systemColor="systemIndigoColor"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="seeLeaderboardClicked:" destination="-1" eventType="touchUpInside" id="1HG-KU-HV4"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="D95-H1-Gqb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="022-Uc-bOF"/>
+                <constraint firstItem="Qbw-n2-e0I" firstAttribute="trailing" secondItem="F9p-kf-PCb" secondAttribute="trailing" id="37K-yS-cfP"/>
+                <constraint firstItem="Qbw-n2-e0I" firstAttribute="leading" secondItem="F9p-kf-PCb" secondAttribute="leading" id="8LB-38-tnW"/>
+                <constraint firstItem="F9p-kf-PCb" firstAttribute="top" secondItem="Qbw-n2-e0I" secondAttribute="bottom" constant="20" id="CEW-ra-YJf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="F9p-kf-PCb" secondAttribute="bottom" constant="55" id="GxF-mM-fQ6"/>
                 <constraint firstItem="F9p-kf-PCb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Nbu-dP-WfH"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="F9p-kf-PCb" secondAttribute="bottom" constant="30" id="V21-S1-Q1x"/>
                 <constraint firstItem="D95-H1-Gqb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="Z4M-nq-yjc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="F9p-kf-PCb" secondAttribute="trailing" constant="30" id="jFA-O6-dcB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="D95-H1-Gqb" secondAttribute="trailing" constant="30" id="kk6-2P-ylZ"/>

@@ -56,6 +56,10 @@ class PageViewPresenter {
         self.quiz = quiz
     }
     
+    func getQuiz() -> Quiz {
+        return quiz!
+    }
+    
     func setUpControllers() -> QuizViewController? {
         guard let firstVC = controllers.first else { return nil }
         firstVC.setInfo(questionNumber: displayedIndex + 1, questionCount: controllers.count)

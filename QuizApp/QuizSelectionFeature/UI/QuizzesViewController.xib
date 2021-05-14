@@ -10,9 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuizzesViewController" customModule="QuizApp" customModuleProvider="target">
             <connections>
+                <outlet property="errorLabel" destination="XdU-Zr-r2T" id="cwQ-rG-9gY"/>
                 <outlet property="funFactLabel" destination="tF1-Mz-d2H" id="o2c-YN-tZo"/>
                 <outlet property="funFactTitleLabel" destination="UBI-rJ-D2I" id="4CA-tK-O83"/>
                 <outlet property="lighbulbImage" destination="E99-tz-Z8g" id="NMj-Nq-1lX"/>
+                <outlet property="networkSign" destination="zwH-lF-Zlx" id="o7h-5U-qZ2"/>
                 <outlet property="quizTable" destination="tP0-ge-6bB" id="Rue-RC-8SZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,11 +25,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhY-3i-FF7">
-                    <rect key="frame" x="102" y="84" width="210" height="34"/>
+                    <rect key="frame" x="60" y="84" width="294" height="39"/>
                     <color key="backgroundColor" systemColor="systemRedColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="34" id="hv5-hQ-4Vm"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                     <state key="normal" title="Get Quiz">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,7 +43,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBI-rJ-D2I">
-                    <rect key="frame" x="83" y="143" width="311" height="45.5"/>
+                    <rect key="frame" x="83" y="148" width="311" height="45.5"/>
                     <attributedString key="attributedText">
                         <fragment content="Fun Fact">
                             <attributes>
@@ -59,7 +58,7 @@
                     <size key="shadowOffset" width="-1" height="1"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="lightbulb.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="E99-tz-Z8g">
-                    <rect key="frame" x="20" y="141" width="61" height="48"/>
+                    <rect key="frame" x="20" y="146" width="61" height="48"/>
                     <color key="tintColor" systemColor="systemYellowColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="61" id="0Xg-Lo-ONc"/>
@@ -67,32 +66,51 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;text&gt;" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tF1-Mz-d2H">
-                    <rect key="frame" x="20" y="209" width="374" height="24"/>
+                    <rect key="frame" x="20" y="214" width="374" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tP0-ge-6bB">
-                    <rect key="frame" x="0.0" y="263" width="414" height="599"/>
+                    <rect key="frame" x="0.0" y="268" width="414" height="594"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdU-Zr-r2T">
+                    <rect key="frame" x="50" y="258" width="314" height="72"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                    <color key="textColor" systemColor="systemGrayColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi.exclamationmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zwH-lF-Zlx">
+                    <rect key="frame" x="60" y="371" width="294" height="117"/>
+                    <color key="tintColor" systemColor="systemGrayColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="h8m-Gc-My6"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
             <constraints>
+                <constraint firstItem="zwH-lF-Zlx" firstAttribute="top" secondItem="XdU-Zr-r2T" secondAttribute="bottom" constant="40" id="5Mi-qc-2zG"/>
                 <constraint firstItem="UBI-rJ-D2I" firstAttribute="top" secondItem="ZhY-3i-FF7" secondAttribute="bottom" constant="25" id="8t9-2g-ZK5"/>
                 <constraint firstItem="UBI-rJ-D2I" firstAttribute="leading" secondItem="E99-tz-Z8g" secondAttribute="trailing" constant="2" id="CBS-D3-dKf"/>
                 <constraint firstItem="tF1-Mz-d2H" firstAttribute="top" secondItem="E99-tz-Z8g" secondAttribute="bottom" constant="20" id="D8T-H4-W6a"/>
                 <constraint firstItem="tP0-ge-6bB" firstAttribute="top" secondItem="tF1-Mz-d2H" secondAttribute="bottom" constant="30" id="EX6-Nx-TDy"/>
                 <constraint firstItem="E99-tz-Z8g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="I8i-Ud-Ac6"/>
+                <constraint firstItem="XdU-Zr-r2T" firstAttribute="top" secondItem="tF1-Mz-d2H" secondAttribute="bottom" constant="20" id="IqX-AV-dkx"/>
                 <constraint firstItem="tP0-ge-6bB" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Jf0-ve-Mvd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XdU-Zr-r2T" secondAttribute="trailing" constant="50" id="Jsh-tg-yTz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zwH-lF-Zlx" secondAttribute="trailing" constant="60" id="TpJ-ZG-d5j"/>
                 <constraint firstItem="ZhY-3i-FF7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="XOD-Nm-CnQ"/>
-                <constraint firstItem="ZhY-3i-FF7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="102" id="XaX-t2-Mkh"/>
+                <constraint firstItem="ZhY-3i-FF7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="XaX-t2-Mkh"/>
                 <constraint firstItem="tP0-ge-6bB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bfP-hV-Z4x"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZhY-3i-FF7" secondAttribute="trailing" constant="102" id="eu5-4s-Won"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZhY-3i-FF7" secondAttribute="trailing" constant="60" id="eu5-4s-Won"/>
+                <constraint firstItem="XdU-Zr-r2T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="fdJ-Pg-7Wr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UBI-rJ-D2I" secondAttribute="trailing" constant="20" id="gwa-eW-hr3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tP0-ge-6bB" secondAttribute="bottom" id="syc-WI-ZBL"/>
                 <constraint firstItem="E99-tz-Z8g" firstAttribute="centerY" secondItem="UBI-rJ-D2I" secondAttribute="centerY" id="th5-AI-jxT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tF1-Mz-d2H" secondAttribute="trailing" constant="20" id="uHN-90-j2v"/>
+                <constraint firstItem="zwH-lF-Zlx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="yIc-M7-acY"/>
                 <constraint firstItem="tF1-Mz-d2H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="zDm-H0-Tih"/>
             </constraints>
             <point key="canvasLocation" x="-4687" y="-1005"/>
@@ -100,6 +118,10 @@
     </objects>
     <resources>
         <image name="lightbulb.fill" catalog="system" width="113" height="128"/>
+        <image name="wifi.exclamationmark" catalog="system" width="128" height="96"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
