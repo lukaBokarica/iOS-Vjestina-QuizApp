@@ -144,12 +144,12 @@
 		5A5FF0F0262354E10028D833 /* QuizApp */ = {
 			isa = PBXGroup;
 			children = (
-				5AD57AEF264EC23C007A206E /* LeaderboardFeature */,
 				5A76A6B9264D525800974E08 /* LoginFeature */,
 				5A76A6BD264D52D000974E08 /* QuizSelectionFeature */,
 				5A76A6C2264D547700974E08 /* QuizQuestionsFeature */,
 				5A76A6CC264D561400974E08 /* QuizResultFeature */,
 				5A76A6C7264D556300974E08 /* SettingsFeature */,
+				5AD57AEF264EC23C007A206E /* LeaderboardFeature */,
 				5A76A6B5264D439500974E08 /* DataSource */,
 				5A5FF0FA262354E60028D833 /* Assets.xcassets */,
 				5A55BDD8264ADB6E006D2A9C /* RequestError.swift */,

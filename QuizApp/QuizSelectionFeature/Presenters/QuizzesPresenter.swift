@@ -80,7 +80,6 @@ class QuizzesPresenter: NSObject, UITableViewDataSource {
         cell.quizDescriptionLabel.text = quizzesByCategory[quizCat]![indexPath.row].description
         cell.quizDifficultyLabel!.text! = "Difficulty: " + String(quizzesByCategory[quizCat]![indexPath.row].level)
         cell.selectionStyle = .none
-        
         return cell
     }
     
@@ -93,7 +92,7 @@ class QuizzesPresenter: NSObject, UITableViewDataSource {
         headerView.text = "    " + categoryName
         headerView.backgroundColor = UIColor.systemIndigo
         headerView.textColor = .white
-        headerView.font = UIFont.boldSystemFont(ofSize: 20)
+        headerView.font = UIFont.boldSystemFont(ofSize: 22)
         
         return headerView
     }

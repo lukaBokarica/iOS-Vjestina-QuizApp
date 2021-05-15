@@ -21,16 +21,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZgO-ZZ-uob">
-                    <rect key="frame" x="50" y="134" width="314" height="638"/>
+                    <rect key="frame" x="50" y="84" width="314" height="738"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siO-fU-KOK">
-                            <rect key="frame" x="50" y="30" width="214" height="31.5"/>
+                            <rect key="frame" x="50" y="10" width="214" height="31.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-gX-Q2f">
-                            <rect key="frame" x="20" y="111.5" width="274" height="422.5"/>
+                            <rect key="frame" x="20" y="121.5" width="274" height="476.5"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="15"/>
@@ -39,8 +39,11 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlh-a2-GnA">
-                            <rect key="frame" x="20" y="584" width="274" height="34"/>
+                            <rect key="frame" x="20" y="678" width="274" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="7BP-Qr-pf8"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="Start Quiz">
                                 <color key="titleColor" systemColor="systemIndigoColor"/>
@@ -58,14 +61,14 @@
                     <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     <constraints>
                         <constraint firstItem="wmc-gX-Q2f" firstAttribute="leading" secondItem="ZgO-ZZ-uob" secondAttribute="leading" constant="20" id="00u-7I-yyI"/>
-                        <constraint firstItem="qlh-a2-GnA" firstAttribute="top" secondItem="wmc-gX-Q2f" secondAttribute="bottom" constant="50" id="DXW-Br-rl1"/>
-                        <constraint firstItem="wmc-gX-Q2f" firstAttribute="top" secondItem="siO-fU-KOK" secondAttribute="bottom" constant="50" id="IxL-7O-f4I"/>
                         <constraint firstAttribute="bottom" secondItem="qlh-a2-GnA" secondAttribute="bottom" constant="20" id="Ogu-rl-X1E"/>
                         <constraint firstItem="siO-fU-KOK" firstAttribute="leading" secondItem="ZgO-ZZ-uob" secondAttribute="leading" constant="50" id="Vig-Ss-IO5"/>
-                        <constraint firstItem="siO-fU-KOK" firstAttribute="top" secondItem="ZgO-ZZ-uob" secondAttribute="top" constant="30" id="YF5-yj-ljR"/>
+                        <constraint firstItem="siO-fU-KOK" firstAttribute="top" secondItem="ZgO-ZZ-uob" secondAttribute="top" constant="10" id="YF5-yj-ljR"/>
+                        <constraint firstItem="wmc-gX-Q2f" firstAttribute="top" secondItem="siO-fU-KOK" secondAttribute="bottom" constant="80" id="Yh1-hO-rBS"/>
                         <constraint firstAttribute="trailing" secondItem="siO-fU-KOK" secondAttribute="trailing" constant="50" id="f0k-NX-fSa"/>
                         <constraint firstItem="qlh-a2-GnA" firstAttribute="leading" secondItem="ZgO-ZZ-uob" secondAttribute="leading" constant="20" id="hJT-EB-cr0"/>
                         <constraint firstAttribute="trailing" secondItem="wmc-gX-Q2f" secondAttribute="trailing" constant="20" id="hMb-IK-kns"/>
+                        <constraint firstItem="qlh-a2-GnA" firstAttribute="top" secondItem="wmc-gX-Q2f" secondAttribute="bottom" constant="80" id="nKv-G6-IhO"/>
                         <constraint firstAttribute="trailing" secondItem="qlh-a2-GnA" secondAttribute="trailing" constant="20" id="piG-ac-gWB"/>
                     </constraints>
                 </view>
@@ -74,9 +77,9 @@
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZgO-ZZ-uob" secondAttribute="trailing" constant="50" id="OVH-F1-a96"/>
-                <constraint firstItem="ZgO-ZZ-uob" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="h2Y-Ha-ATz"/>
+                <constraint firstItem="ZgO-ZZ-uob" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="h2Y-Ha-ATz"/>
                 <constraint firstItem="ZgO-ZZ-uob" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="k9a-ep-zGi"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZgO-ZZ-uob" secondAttribute="bottom" constant="90" id="u0S-HV-NcS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZgO-ZZ-uob" secondAttribute="bottom" constant="40" id="u0S-HV-NcS"/>
             </constraints>
             <point key="canvasLocation" x="22" y="-153"/>
         </view>

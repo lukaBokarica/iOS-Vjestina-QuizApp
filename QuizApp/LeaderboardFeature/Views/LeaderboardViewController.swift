@@ -79,7 +79,8 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell.userRankLabel.text = String(indexPath.row + 1)
         cell.usernameLabel.text = results[indexPath.row].username
-        cell.userScoreLabel.text = results[indexPath.row].score
+        cell.userScoreLabel.text = results[indexPath.row].score!
+        cell.selectionStyle = .none
         return cell
     }
     
