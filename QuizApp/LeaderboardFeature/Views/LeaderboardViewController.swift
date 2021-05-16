@@ -7,30 +7,27 @@
 
 import UIKit
 
-class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LeaderboardDelegate {
     
     @IBOutlet weak var leaderboardTable: UITableView!
     
     var leaderboardResults: [LeaderboardResult] = []
     
-    var networkService: NetworkServiceProtocol?
-    
-    var quiz: Quiz?
-    
     var results: [LeaderboardResult] = []
     
+    private let leaderboardPresenter = LeaderboardPresenter(networkService: NetworkService())
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        leaderboardPresenter.setViewDelegate(leaderboardDelegate: self)
+
         initialSetup()
 
-        networkService = NetworkService()
-
         DispatchQueue.main.async {
-            self.getResults()
+            self.leaderboardPresenter.getResults()
         }
-
-                
+        
     }
 
     func initialSetup() {
@@ -61,7 +58,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func setQuiz(quiz: Quiz) {
-        self.quiz = quiz
+        leaderboardPresenter.setQuiz(quiz: quiz)
     }
     
     @objc func goBack() {
@@ -69,71 +66,26 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results.count
+        return (leaderboardPresenter.tableView(tableView, numberOfRowsInSection: section))
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: LeaderBoardCellView = tableView.dequeueReusableCell(
-            withIdentifier: LeaderBoardCellView.identifier,
-            for: indexPath) as! LeaderBoardCellView
-        
-        cell.userRankLabel.text = String(indexPath.row + 1)
-        cell.usernameLabel.text = results[indexPath.row].username
-        cell.userScoreLabel.text = results[indexPath.row].score!
-        cell.selectionStyle = .none
-        return cell
+        return (leaderboardPresenter.tableView(tableView, cellForRowAt: indexPath))
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
+        return leaderboardPresenter.tableView(tableView, willSelectRowAt: indexPath)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return (leaderboardPresenter.numberOfSections(in: tableView))
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        //dodati custom view po slici s figme
-        let headerView = UILabel()
-        headerView.text = "   Player" + "                                                " + "Score"
-        headerView.backgroundColor = UIColor.systemIndigo
-        headerView.textColor = .white
-        headerView.font = UIFont.boldSystemFont(ofSize: 20)
-        
-        return headerView
+        return leaderboardPresenter.tableView(tableView, viewForHeaderInSection: section)
     }
     
-    func getResults() {
-        DispatchQueue.global().async {
-            var urlComponents = URLComponents()
-            urlComponents.scheme = "https"
-            urlComponents.host = "iosquiz.herokuapp.com"
-            urlComponents.path = "/api/score"
-            
-            //provjeriti liniju ispod
-            let queryItems = [URLQueryItem(name: "quiz_id", value: String(self.quiz!.id))]
-            urlComponents.queryItems = queryItems
-            
-            var request = URLRequest(url: urlComponents.url!)
-            request.httpMethod = "GET"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            let defaults = UserDefaults.standard
-            request.setValue(defaults.string(forKey: "Token"), forHTTPHeaderField: "Authorization")
-            
-            self.networkService!.executeUrlRequest(request) {(result: Result<[LeaderboardResult], RequestError>) in
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let value):
-                    print("success")
-                    self.completed(leaderboardResults: value)
-                }
-            }
-        }
-    }
-    
-    func completed(leaderboardResults: [LeaderboardResult]) {
-        results = leaderboardResults
+    func completed() {
         leaderboardTable.reloadData()
     }
 }

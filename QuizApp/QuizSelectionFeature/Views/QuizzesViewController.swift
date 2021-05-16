@@ -41,6 +41,7 @@ class QuizzesViewController: UIViewController, QuizzesViewDelegate, UITableViewD
         quizTable.dataSource = self
         quizTable.backgroundColor = .clear
         quizTable.isHidden = true
+        quizTable.rowHeight = 100
         
         errorLabel.isHidden = true
         networkSign.isHidden = true

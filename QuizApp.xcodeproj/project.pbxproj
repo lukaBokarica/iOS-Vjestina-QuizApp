@@ -41,6 +41,7 @@
 		5A76A6D6264D765F00974E08 /* PageViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76A6D5264D765F00974E08 /* PageViewPresenter.swift */; };
 		5A7C7D822626D54400278080 /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C7D802626D54400278080 /* QuizzesViewController.swift */; };
 		5A96418F264D85D90085192D /* QuizViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96418E264D85D90085192D /* QuizViewPresenter.swift */; };
+		5ABC00642651181D00D200A7 /* LeaderboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC00632651181D00D200A7 /* LeaderboardPresenter.swift */; };
 		5AD57AEE264D9927007A206E /* QuizResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD57AED264D9927007A206E /* QuizResultPresenter.swift */; };
 		5AD57AF6264EC28B007A206E /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD57AF4264EC28B007A206E /* LeaderboardViewController.swift */; };
 		5AD57AF7264EC28B007A206E /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD57AF5264EC28B007A206E /* LeaderboardViewController.xib */; };
@@ -91,6 +92,7 @@
 		5A76A6D5264D765F00974E08 /* PageViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewPresenter.swift; sourceTree = "<group>"; };
 		5A7C7D802626D54400278080 /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
 		5A96418E264D85D90085192D /* QuizViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewPresenter.swift; sourceTree = "<group>"; };
+		5ABC00632651181D00D200A7 /* LeaderboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPresenter.swift; sourceTree = "<group>"; };
 		5AD57AED264D9927007A206E /* QuizResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultPresenter.swift; sourceTree = "<group>"; };
 		5AD57AF4264EC28B007A206E /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		5AD57AF5264EC28B007A206E /* LeaderboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 		5AD57AF0264EC24D007A206E /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				5ABC00632651181D00D200A7 /* LeaderboardPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 			files = (
 				5AD57AEE264D9927007A206E /* QuizResultPresenter.swift in Sources */,
 				5A76A6D6264D765F00974E08 /* PageViewPresenter.swift in Sources */,
+				5ABC00642651181D00D200A7 /* LeaderboardPresenter.swift in Sources */,
 				5A55BDD7264ADABB006D2A9C /* Result.swift in Sources */,
 				5A55BDDF264C0E36006D2A9C /* UserCredentials.swift in Sources */,
 				5A76A6B8264D442E00974E08 /* LoginPresenter.swift in Sources */,
