@@ -98,7 +98,6 @@ class LeaderboardPresenter {
             urlComponents.host = "iosquiz.herokuapp.com"
             urlComponents.path = "/api/score"
             
-            //provjeriti liniju ispod
             let queryItems = [URLQueryItem(name: "quiz_id", value: String(self.quiz!.id))]
             urlComponents.queryItems = queryItems
             
@@ -108,7 +107,9 @@ class LeaderboardPresenter {
             let defaults = UserDefaults.standard
             request.setValue(defaults.string(forKey: "Token"), forHTTPHeaderField: "Authorization")
             
-            self.networkService!.executeUrlRequest(request) {(result: Result<[LeaderboardResult], RequestError>) in
+            self.networkService!.executeUrlRequest(request) { [weak self] (result: Result<[LeaderboardResult], RequestError>) in
+                guard let self = self else { return }
+
                 switch result {
                 case .failure(let error):
                     print(error)

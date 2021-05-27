@@ -32,13 +32,17 @@ class NetworkService: NetworkServiceProtocol {
     }
     
     func executeUrlRequest<T: Codable>(_ request: URLRequest, completionHandler: @escaping (Result<T, RequestError>) -> Void) {
-        //novo!!!
-        if(!self.internetConnectionAvailable!) {
+        
+        guard
+            let internetConnectionAvailable = self.internetConnectionAvailable,
+            internetConnectionAvailable
+        else {
             DispatchQueue.main.async {
                 completionHandler(.failure(.noInternetConnection))
             }
             return
         }
+        
         
         let dataTask = URLSession.shared.dataTask(with: request) { data, response,
         err in

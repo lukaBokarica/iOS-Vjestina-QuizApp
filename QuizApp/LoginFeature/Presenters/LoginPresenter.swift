@@ -41,7 +41,9 @@ class LoginPresenter {
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             
-            self.networkService.executeUrlRequest(request) {(result: Result<LoginResponse, RequestError>) in
+            self.networkService.executeUrlRequest(request) { [weak self] (result: Result<LoginResponse, RequestError>) in
+                guard let self = self else { return }
+                
                 switch result {
                 case .failure(let error):
                     switch error {
@@ -54,7 +56,7 @@ class LoginPresenter {
                     let defaults = UserDefaults.standard
                     defaults.set(value.token, forKey: "Token")
                     print(value.token)
-                    defaults.set(value.user_id, forKey: "UserId")
+                    defaults.set(value.userId, forKey: "UserId")
                     self.loginViewDelegate?.successfulLogin()
                 }
             }

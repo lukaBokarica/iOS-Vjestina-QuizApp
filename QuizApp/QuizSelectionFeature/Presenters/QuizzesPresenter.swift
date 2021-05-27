@@ -38,7 +38,9 @@ class QuizzesPresenter: NSObject, UITableViewDataSource {
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                     
-            self.networkService.executeUrlRequest(request) {(result: Result<QuizzesResponse, RequestError>) in
+            self.networkService.executeUrlRequest(request) { [weak self] (result: Result<QuizzesResponse, RequestError>) in
+                guard let self = self else { return }
+
                 switch result {
                 case .failure(_):
                     self.quizzesViewDelegate?.showErrorLabel()

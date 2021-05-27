@@ -10,6 +10,10 @@ import UIKit
 struct LoginResponse: Codable {
     
     var token : String
-    var user_id : Int
+    var userId : Int
 
+    enum CodingKeys: String, CodingKey {
+        case token
+        case userId = "user_id"
+    }
 }
