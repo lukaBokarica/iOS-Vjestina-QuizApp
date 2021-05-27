@@ -58,13 +58,19 @@
                                 <color key="shadowColor" systemColor="labelColor"/>
                                 <size key="shadowOffset" width="4" height="-2"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JEU-g4-DEM">
+                                <rect key="frame" x="73" y="267" width="274" height="322"/>
+                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                         <constraints>
                             <constraint firstItem="usj-6f-2AM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="2gd-qA-IBR"/>
+                            <constraint firstItem="JEU-g4-DEM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="73" id="4dW-oM-QtN"/>
                             <constraint firstItem="yZc-WW-Bcm" firstAttribute="centerX" secondItem="ZTb-mb-Yfj" secondAttribute="centerX" id="6Hj-An-xWc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="usj-6f-2AM" secondAttribute="trailing" constant="70" id="BLb-s3-A7s"/>
+                            <constraint firstItem="JEU-g4-DEM" firstAttribute="top" secondItem="ZTb-mb-Yfj" secondAttribute="bottom" constant="40" id="Dar-0t-Q1D"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZTb-mb-Yfj" secondAttribute="trailing" constant="65" id="Dgx-6n-WpY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yZc-WW-Bcm" secondAttribute="trailing" constant="30" id="H23-re-Cnm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yZc-WW-Bcm" secondAttribute="bottom" constant="60" id="cTx-SH-qcM"/>
@@ -73,6 +79,8 @@
                             <constraint firstItem="ZTb-mb-Yfj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="lZh-hv-3AY"/>
                             <constraint firstItem="yZc-WW-Bcm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="ssY-d7-eGV"/>
                             <constraint firstItem="ZTb-mb-Yfj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="v9J-rc-85k"/>
+                            <constraint firstItem="yZc-WW-Bcm" firstAttribute="top" secondItem="JEU-g4-DEM" secondAttribute="bottom" constant="50" id="xpM-KI-jSV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JEU-g4-DEM" secondAttribute="trailing" constant="67" id="zMl-FX-HGQ"/>
                         </constraints>
                     </view>
                 </viewController>
