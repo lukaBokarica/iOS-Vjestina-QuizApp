@@ -1,4 +1,6 @@
-struct Question: Codable {
+import UIKit
+
+public struct Question: Codable {
 
     let id: Int
     let question: String
@@ -10,5 +12,14 @@ struct Question: Codable {
         case question
         case answers
         case correctAnswer = "correct_answer"
+    }
+}
+
+extension Question {
+    init(with entity: CDQuizQuestion) {
+        id = Int(bitPattern: entity.id)
+        question = entity.question
+        answers = entity.answers as! [String]
+        correctAnswer = Int(entity.correctAnswer)
     }
 }

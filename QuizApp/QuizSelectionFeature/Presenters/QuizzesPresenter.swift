@@ -23,8 +23,12 @@ class QuizzesPresenter: NSObject, UITableViewDataSource {
 
     var quizzes : [Quiz] = []
 
+    let quizzesRepository: QuizRepository
+    
     init(networkService:NetworkService){
         self.networkService = networkService
+        let coreDataContext = CoreDataStack(modelName: "quizAppCD").managedContext
+        self.quizzesRepository = QuizRepository.init(databaseSource: QuizDatabaseDataSource(coreDataContext: coreDataContext), networkSource: QuizNetworkDataSource(networkService: self.networkService as! NetworkService))
     }
     
     func setViewDelegate(quizzesViewDelegate:QuizzesViewDelegate?){
@@ -32,23 +36,24 @@ class QuizzesPresenter: NSObject, UITableViewDataSource {
     }
     
     func fetchQuizzes() {
-        DispatchQueue.global().async {
-            guard let url = URL(string: "https://iosquiz.herokuapp.com/api/quizzes") else { return }
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                    
-            self.networkService.executeUrlRequest(request) { [weak self] (result: Result<QuizzesResponse, RequestError>) in
-                guard let self = self else { return }
-
-                switch result {
-                case .failure(_):
-                    self.quizzesViewDelegate?.showErrorLabel()
-                case .success(let value):
-                    self.quizzesViewDelegate?.completed(quizzes: value.quizzes)
-                }
-            }
-        }
+        self.quizzesViewDelegate?.completed(quizzes: quizzesRepository.fetchData())
+//        DispatchQueue.global().async {
+//            guard let url = URL(string: "https://iosquiz.herokuapp.com/api/quizzes") else { return }
+//            var request = URLRequest(url: url)
+//            request.httpMethod = "GET"
+//            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//
+//            self.networkService.executeUrlRequest(request) { [weak self] (result: Result<QuizzesResponse, RequestError>) in
+//                guard let self = self else { return }
+//
+//                switch result {
+//                case .failure(_):
+//                    self.quizzesViewDelegate?.showErrorLabel()
+//                case .success(let value):
+//                    self.quizzesViewDelegate?.completed(quizzes: value.quizzes)
+//                }
+//            }
+//        }
     }
     
     func getFunFact(quizzes : [Quiz]) -> Int {

@@ -1,3 +1,6 @@
+import CoreData
+import UIKit
+
 struct Quiz: Codable {
 
     let id: Int
@@ -16,5 +19,19 @@ struct Quiz: Codable {
         case level
         case imageUrl = "image"
         case questions
+    }
+}
+
+extension Quiz {
+    init(with entity: CDQuiz) {
+        id = Int(bitPattern: entity.id)
+        title = entity.title
+        description = entity.quizDescription
+        //POPRAVITI!!!
+        category = QuizCategory.sport
+        level = Int(entity.level)
+        imageUrl = entity.imageUrl
+        //POPRAVITI!!!
+        questions = []
     }
 }
