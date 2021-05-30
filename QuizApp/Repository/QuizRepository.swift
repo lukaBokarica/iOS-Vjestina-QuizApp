@@ -31,9 +31,10 @@ class QuizRepository: QuizRepositoryProtocol {
     }
     
     func fetchRemoteData() -> [Quiz] {
-        let quizzes = quizNetworkDataSource.fetchQuizzesFromAPI()
         quizDatabaseDataSource.deleteQuizzes()
-        quizDatabaseDataSource.saveQuizzes(quizzes: quizzes)
+        let quizzes = quizNetworkDataSource.fetchQuizzesFromAPI(quizDatabaseDataSource: quizDatabaseDataSource)
+        
+        //quizDatabaseDataSource.saveQuizzes(quizzes: quizzes)
         return quizzes
     }
     

@@ -13,7 +13,6 @@ class QuizNetworkDataSource {
     var quizzes: [Quiz]
     weak private var quizzesViewDelegate : QuizzesViewDelegate?
 
-    
     init(networkService: NetworkService) {
         self.networkService = networkService
         quizzes = []
@@ -23,7 +22,7 @@ class QuizNetworkDataSource {
         self.quizzesViewDelegate = delegate
     }
     
-    func fetchQuizzesFromAPI() -> [Quiz] {
+    func fetchQuizzesFromAPI(quizDatabaseDataSource: QuizDatabaseDataSource) -> [Quiz] {
         
         DispatchQueue.global().async {
             guard let url = URL(string: "https://iosquiz.herokuapp.com/api/quizzes") else { return }
@@ -40,6 +39,7 @@ class QuizNetworkDataSource {
                 case .success(let value):
                     print(value)
                     self.quizzesViewDelegate?.completed(quizzes: value.quizzes)
+                    quizDatabaseDataSource.saveQuizzes(quizzes: value.quizzes)
                     //self.quizzes = value.quizzes
                 }
             }

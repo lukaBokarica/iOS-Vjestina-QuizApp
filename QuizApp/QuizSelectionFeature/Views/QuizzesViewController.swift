@@ -23,17 +23,15 @@ class QuizzesViewController: UIViewController, QuizzesViewDelegate, UITableViewD
     
     private let quizzesPresenter = QuizzesPresenter(networkService: NetworkService())
     
-    @IBAction func getQuizClicked(_ sender: UIButton) {
+    override func viewWillAppear(_ animated: Bool) {
+        quizzesPresenter.setViewDelegate(quizzesViewDelegate: self)
+        
         quizzesPresenter.fetchQuizzes()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        quizzesPresenter.setViewDelegate(quizzesViewDelegate: self)
-        
-        quizzesPresenter.fetchQuizzes()
-        
+        initialSetup()
     }
     
     func initialSetup() {
@@ -105,7 +103,6 @@ class QuizzesViewController: UIViewController, QuizzesViewDelegate, UITableViewD
         quizzesPresenter.setQuizzes(quizzes: quizzes)
 
         quizTable.reloadData()
-        initialSetup()
         
         errorLabel.isHidden = true
         networkSign.isHidden = true

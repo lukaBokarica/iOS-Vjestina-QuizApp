@@ -11,14 +11,22 @@ class QuizDatabaseDataSource: QuizDatabaseDataSourceProtocol {
     
     private let coreDataContext: NSManagedObjectContext
     
+    private var quizzesViewDelegate: QuizzesViewDelegate?
+    
     init(coreDataContext: NSManagedObjectContext) {
         self.coreDataContext = coreDataContext
+    }
+    
+    func setQuizzesViewDelegate(delegate: QuizzesViewDelegate) {
+        self.quizzesViewDelegate = delegate
     }
     
     func fetchQuizzesFromCoreData() -> [Quiz] {
         let request: NSFetchRequest<CDQuiz> = CDQuiz.fetchRequest()
         do {
-            return try coreDataContext.fetch(request).map { Quiz(with: $0) }
+            let quizzes = try coreDataContext.fetch(request).map { Quiz(with: $0) }
+            self.quizzesViewDelegate?.completed(quizzes: quizzes)
+            return quizzes
         } catch {
             print("Error when fetching quizzes from core data: \(error)")
             return []

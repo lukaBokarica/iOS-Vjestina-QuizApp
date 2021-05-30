@@ -34,6 +34,7 @@ class QuizzesPresenter: NSObject, UITableViewDataSource {
     func setViewDelegate(quizzesViewDelegate:QuizzesViewDelegate?){
         self.quizzesViewDelegate = quizzesViewDelegate
         self.quizzesRepository.quizNetworkDataSource.setQuizzesViewDelegate(delegate: quizzesViewDelegate!)
+        self.quizzesRepository.quizDatabaseDataSource.setQuizzesViewDelegate(delegate: quizzesViewDelegate!)
     }
     
     func fetchQuizzes() {
