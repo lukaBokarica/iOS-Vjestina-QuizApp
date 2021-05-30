@@ -33,10 +33,13 @@ class QuizzesPresenter: NSObject, UITableViewDataSource {
     
     func setViewDelegate(quizzesViewDelegate:QuizzesViewDelegate?){
         self.quizzesViewDelegate = quizzesViewDelegate
+        self.quizzesRepository.quizNetworkDataSource.setQuizzesViewDelegate(delegate: quizzesViewDelegate!)
     }
     
     func fetchQuizzes() {
-        self.quizzesViewDelegate?.completed(quizzes: quizzesRepository.fetchData())
+        DispatchQueue.main.async {
+            self.quizzesViewDelegate?.completed(quizzes: self.quizzesRepository.fetchData())
+        }
 //        DispatchQueue.global().async {
 //            guard let url = URL(string: "https://iosquiz.herokuapp.com/api/quizzes") else { return }
 //            var request = URLRequest(url: url)

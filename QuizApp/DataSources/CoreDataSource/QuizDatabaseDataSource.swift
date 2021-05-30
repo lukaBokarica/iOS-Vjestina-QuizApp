@@ -10,7 +10,7 @@ import UIKit
 class QuizDatabaseDataSource: QuizDatabaseDataSourceProtocol {
     
     private let coreDataContext: NSManagedObjectContext
-
+    
     init(coreDataContext: NSManagedObjectContext) {
         self.coreDataContext = coreDataContext
     }
@@ -26,40 +26,54 @@ class QuizDatabaseDataSource: QuizDatabaseDataSourceProtocol {
     }
     
     func saveQuizzes(quizzes: [Quiz]) {
-            for quiz in quizzes {
-                let newQuiz = NSEntityDescription.insertNewObject(forEntityName: "CDQuiz", into: coreDataContext)
-                newQuiz.setValue(Int(quiz.id), forKey: "id")
-                newQuiz.setValue(quiz.title, forKey: "title")
-                newQuiz.setValue(quiz.description, forKey: "quizDescription")
-                newQuiz.setValue(quiz.category, forKey: "category")
-                newQuiz.setValue(quiz.imageUrl, forKey: "imageUrl")
-                newQuiz.setValue(quiz.level, forKey: "level")
-                //provjeriti jel ovo radi dobro!!!
-                saveQuestions(questions: quiz.questions)
-                //newQuiz.setValue(NSSet.init(object: quiz.questions), forKey: "questions")
-            }
-            do {
-                try coreDataContext.save()
-                print("Success")
-            } catch {
-                print("Error saving: \(error)")
-            }
-    }
-    
-    func saveQuestions(questions: [Question]) {
-        for question in questions {
-            let newQuestion = NSEntityDescription.insertNewObject(forEntityName: "CDQuizQuestion", into: coreDataContext)
-            newQuestion.setValue(Int(question.id), forKey: "id")
-            newQuestion.setValue(question.answers, forKey: "answers")
-            newQuestion.setValue(question.correctAnswer, forKey: "correctAnswer")
-            newQuestion.setValue(question.question, forKey: "question")
-            //newQuestion.setValue(quiz, forKey: "quiz")
+        let quizEntity = NSEntityDescription.entity(forEntityName: "CDQuiz", in: coreDataContext)!
+        let questionEntity = NSEntityDescription.entity(forEntityName: "CDQuizQuestion", in: coreDataContext)!
+
+        for quiz in quizzes {
+            let newQuiz = CDQuiz(entity: quizEntity, insertInto: coreDataContext)
+            newQuiz.id = Int16(quiz.id)
+            newQuiz.title = quiz.title
+            newQuiz.quizDescription = quiz.description
+            newQuiz.level = Int16(quiz.level)
+            newQuiz.imageUrl = quiz.imageUrl
+            newQuiz.category = quiz.category.rawValue
+            //provjeriti jel ovo radi dobro!!
+            let questions = saveQuestions(questions: quiz.questions, questionEntity: questionEntity, quiz: newQuiz)
+            newQuiz.questions = NSSet(array: questions)
         }
         do {
             try coreDataContext.save()
-            print("Success")
+            print("Success while saving quizzes and questions to core data!")
         } catch {
             print("Error saving: \(error)")
+        }
+    }
+    
+    func saveQuestions(questions: [Question], questionEntity: NSEntityDescription, quiz: CDQuiz) -> [CDQuizQuestion] {
+        var quizQuestions: [CDQuizQuestion] = []
+        for question in questions {
+            let newQuestion = CDQuizQuestion(entity: questionEntity, insertInto: coreDataContext)
+            newQuestion.id = Int16(question.id)
+            newQuestion.question = question.question
+            newQuestion.answers = question.answers
+            newQuestion.correctAnswer = Int16(question.correctAnswer)
+            newQuestion.quiz = quiz
+            quizQuestions.append(newQuestion)
+        }
+        return quizQuestions
+    }
+    
+    func deleteQuizzes() {
+        let request: NSFetchRequest<CDQuiz> = CDQuiz.fetchRequest()
+        do {
+            let quizzes = try coreDataContext.fetch(request)
+            
+            for quiz in quizzes {
+                coreDataContext.delete(quiz)
+            }
+            try? coreDataContext.save()
+        } catch _ as NSError {
+            print("Error while deleting quizzes from CoreData!")
         }
     }
 }

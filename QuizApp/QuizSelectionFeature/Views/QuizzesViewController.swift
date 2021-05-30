@@ -31,8 +31,9 @@ class QuizzesViewController: UIViewController, QuizzesViewDelegate, UITableViewD
         super.viewDidLoad()
         
         quizzesPresenter.setViewDelegate(quizzesViewDelegate: self)
-
-        initialSetup()
+        
+        quizzesPresenter.fetchQuizzes()
+        
     }
     
     func initialSetup() {
@@ -102,9 +103,10 @@ class QuizzesViewController: UIViewController, QuizzesViewDelegate, UITableViewD
     
     func completed(quizzes: [Quiz]) {
         quizzesPresenter.setQuizzes(quizzes: quizzes)
-        
+
         quizTable.reloadData()
-            
+        initialSetup()
+        
         errorLabel.isHidden = true
         networkSign.isHidden = true
         

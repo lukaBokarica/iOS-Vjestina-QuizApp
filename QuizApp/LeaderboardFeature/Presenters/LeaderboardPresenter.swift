@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LeaderboardDelegate: NSObjectProtocol, UITableViewDelegate, UITableViewDataSource {
+protocol LeaderboardDelegate: UITableViewDelegate, UITableViewDataSource {
     func completed()
 }
 

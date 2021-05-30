@@ -27,11 +27,14 @@ extension Quiz {
         id = Int(bitPattern: entity.id)
         title = entity.title
         description = entity.quizDescription
-        //POPRAVITI!!!
-        category = QuizCategory.sport
+        category = QuizCategory.init(rawValue: entity.category)!
         level = Int(entity.level)
         imageUrl = entity.imageUrl
-        //POPRAVITI!!!
-        questions = []
+        var newQuestions: [Question] = []
+        for cdquestion in entity.questions {
+            let question = Question(with: cdquestion as! CDQuizQuestion)
+            newQuestions.append(question)
+        }
+        self.questions = newQuestions
     }
 }

@@ -2,7 +2,7 @@
 //  CDQuizQuestion+CoreDataProperties.swift
 //  QuizApp
 //
-//  Created by Pero Bokarica on 29.05.2021..
+//  Created by Pero Bokarica on 30.05.2021..
 //
 //
 
@@ -19,7 +19,7 @@ extension CDQuizQuestion {
     @NSManaged public var question: String
     @NSManaged public var id: Int16
     @NSManaged public var correctAnswer: Int16
-    @NSManaged public var answers: NSObject
+    @NSManaged public var answers: [String]
     @NSManaged public var quiz: CDQuiz?
 
 }

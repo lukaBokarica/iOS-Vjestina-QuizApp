@@ -19,7 +19,7 @@ extension Question {
     init(with entity: CDQuizQuestion) {
         id = Int(bitPattern: entity.id)
         question = entity.question
-        answers = entity.answers as! [String]
+        answers = entity.answers
         correctAnswer = Int(entity.correctAnswer)
     }
 }

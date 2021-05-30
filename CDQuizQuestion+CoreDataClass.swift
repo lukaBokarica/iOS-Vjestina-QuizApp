@@ -2,7 +2,7 @@
 //  CDQuizQuestion+CoreDataClass.swift
 //  QuizApp
 //
-//  Created by Pero Bokarica on 29.05.2021..
+//  Created by Pero Bokarica on 30.05.2021..
 //
 //
 
