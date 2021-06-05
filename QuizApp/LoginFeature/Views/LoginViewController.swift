@@ -141,8 +141,6 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     
     func successfulLogin() {
         makeElementsDissapear()
-        let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
-        sceneDelegate?.goToApp()
     }
     
     func unsuccessfulLogin() {
@@ -156,38 +154,38 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     }
     
     func makeElementsDissapear() {
-        //ovo prebaciti!!!
-        
         UIView.animate(
             withDuration: 1.5,
             delay: 0,
             options: [ .curveEaseInOut ],
             animations: {
-                self.popQuizLabel.alpha = 0
-                self.popQuizLabel.transform = self.popQuizLabel.transform.translatedBy(x: 0, y: self.view.frame.height)
+                self.popQuizLabel.transform = self.popQuizLabel.transform.translatedBy(x: 0, y: -self.popQuizLabel.frame.maxY)
             }) {(completed) in
             UIView.animate(
                 withDuration: 1.5,
                 delay: 0.25,
                 options: [ .curveEaseInOut ],
                 animations: {
-                    self.loginField.transform = .identity
+                    self.loginField.transform = self.loginField.transform.translatedBy(x: 0, y: -self.loginField.frame.maxY)
                 }) { (completed) in
                 UIView.animate(
                     withDuration: 1.5,
                     delay: 0.25,
                     options: [ .curveEaseInOut ],
                     animations: {
-                        self.passwordField.transform = .identity
+                        self.passwordField.transform = self.passwordField.transform.translatedBy(x: 0, y: -self.passwordField.frame.maxY)
                     }) {(completed) in
                     UIView.animate(
                         withDuration: 1.5,
                         delay: 0.25,
                         options: [ .curveEaseInOut ],
                         animations: {
-                            self.loginButton.transform = .identity
+                            self.loginButton.transform = self.loginButton.transform.translatedBy(x: 0, y: -self.loginButton.frame.maxY)
                         },
-                        completion: nil)
+                        completion: {_ in
+                            let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+                            sceneDelegate?.goToApp()
+                        })
                 }
                 }
             }
