@@ -40,7 +40,6 @@ class QuizNetworkDataSource {
                     print(value)
                     self.quizzesViewDelegate?.completed(quizzes: value.quizzes)
                     quizDatabaseDataSource.saveQuizzes(quizzes: value.quizzes)
-                    //self.quizzes = value.quizzes
                 }
             }
         }

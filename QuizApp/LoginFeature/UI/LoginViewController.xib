@@ -14,6 +14,7 @@
                 <outlet property="loginFailedLabel" destination="cvb-2R-f9Y" id="t0m-Hx-Sy6"/>
                 <outlet property="loginField" destination="dp0-oD-V1p" id="eRM-c4-IAj"/>
                 <outlet property="passwordField" destination="n0v-ah-5dF" id="JMJ-U6-4rC"/>
+                <outlet property="popQuizLabel" destination="LTl-hx-L1U" id="Qv3-KG-g4Y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

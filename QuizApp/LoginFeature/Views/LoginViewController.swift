@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController, LoginViewDelegate {
-        
+    
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var passwordField: UITextField!
@@ -16,7 +16,9 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     @IBOutlet weak var loginField: UITextField!
     
     @IBOutlet weak var loginFailedLabel: UILabel!
-        
+    
+    @IBOutlet weak var popQuizLabel: UILabel!
+    
     private let loginPresenter = LoginPresenter(networkService: NetworkService())
     
     override func viewDidLoad() {
@@ -24,6 +26,70 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         loginPresenter.setViewDelegate(loginViewDelegate: self)
         
         initialSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        popQuizLabel.alpha = 0
+        popQuizLabel.transform.scaledBy(x: 0, y: 0)
+        
+        loginField.alpha = 0
+        loginField.transform = loginField.transform.translatedBy(
+            x: -view.frame.width,
+            y: 0)
+        
+        passwordField.alpha = 0
+        passwordField.transform = passwordField.transform.translatedBy(
+            x: -view.frame.width,
+            y: 0)
+        
+        loginButton.alpha = 0
+        loginButton.transform = loginButton.transform.translatedBy(
+            x: -view.frame.width,
+            y: 0)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(
+            withDuration: 1.5,
+            delay: 0,
+            options: [ .curveEaseInOut ],
+            animations: {
+                self.popQuizLabel.alpha = 1.0
+                self.popQuizLabel.transform = .identity
+            },
+            completion: nil)
+        
+        UIView.animate(
+            withDuration: 1.5,
+            delay: 0.25,
+            options: [ .curveEaseInOut ],
+            animations: {
+                self.loginField.alpha = 1
+                self.loginField.transform = .identity
+            }) { (completed) in
+            UIView.animate(
+                withDuration: 1.5,
+                delay: 0.25,
+                options: [ .curveEaseInOut ],
+                animations: {
+                    self.passwordField.alpha = 1
+                    self.passwordField.transform = .identity
+                }) {(completed) in
+                UIView.animate(
+                    withDuration: 1.5,
+                    delay: 0.25,
+                    options: [ .curveEaseInOut ],
+                    animations: {
+                        self.loginButton.alpha = 1
+                        self.loginButton.transform = .identity
+                    },
+                    completion: nil)
+            }
+            }
     }
     
     func initialSetup() {
@@ -58,7 +124,7 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     @IBAction func passwordFieldDeselected(_ sender: UITextField) {
         sender.layer.borderWidth -= 1
     }
-
+    
     @IBAction func passwordEditingChanged(_ sender: UITextField) {
         loginFailedLabel.isHidden = true
         if(!loginField.text!.elementsEqual("") && passwordField.text! != "") {
@@ -74,6 +140,7 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     }
     
     func successfulLogin() {
+        makeElementsDissapear()
         let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
         sceneDelegate?.goToApp()
     }
@@ -86,5 +153,43 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     func noInternetConnectionWarning() {
         self.loginFailedLabel.text = "No internet connection!"
         self.loginFailedLabel.isHidden = false
+    }
+    
+    func makeElementsDissapear() {
+        //ovo prebaciti!!!
+        
+        UIView.animate(
+            withDuration: 1.5,
+            delay: 0,
+            options: [ .curveEaseInOut ],
+            animations: {
+                self.popQuizLabel.alpha = 0
+                self.popQuizLabel.transform = self.popQuizLabel.transform.translatedBy(x: 0, y: self.view.frame.height)
+            }) {(completed) in
+            UIView.animate(
+                withDuration: 1.5,
+                delay: 0.25,
+                options: [ .curveEaseInOut ],
+                animations: {
+                    self.loginField.transform = .identity
+                }) { (completed) in
+                UIView.animate(
+                    withDuration: 1.5,
+                    delay: 0.25,
+                    options: [ .curveEaseInOut ],
+                    animations: {
+                        self.passwordField.transform = .identity
+                    }) {(completed) in
+                    UIView.animate(
+                        withDuration: 1.5,
+                        delay: 0.25,
+                        options: [ .curveEaseInOut ],
+                        animations: {
+                            self.loginButton.transform = .identity
+                        },
+                        completion: nil)
+                }
+                }
+            }
     }
 }
