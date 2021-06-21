@@ -70,26 +70,23 @@ class LoginViewController: UIViewController, LoginViewDelegate {
             animations: {
                 self.loginField.alpha = 1
                 self.loginField.transform = .identity
-            }) { (completed) in
-            UIView.animate(
-                withDuration: 1.5,
-                delay: 0.25,
-                options: [ .curveEaseInOut ],
-                animations: {
-                    self.passwordField.alpha = 1
-                    self.passwordField.transform = .identity
-                }) {(completed) in
-                UIView.animate(
-                    withDuration: 1.5,
-                    delay: 0.25,
-                    options: [ .curveEaseInOut ],
-                    animations: {
-                        self.loginButton.alpha = 1
-                        self.loginButton.transform = .identity
-                    },
-                    completion: nil)
-            }
-            }
+            })
+        UIView.animate(
+            withDuration: 1.5,
+            delay: 0.5,
+            options: [ .curveEaseInOut ],
+            animations: {
+                self.passwordField.alpha = 1
+                self.passwordField.transform = .identity
+            })
+        UIView.animate(
+            withDuration: 1.5,
+            delay: 0.75,
+            options: [ .curveEaseInOut ],
+            animations: {
+                self.loginButton.alpha = 1
+                self.loginButton.transform = .identity
+            })
     }
     
     func initialSetup() {
@@ -160,34 +157,31 @@ class LoginViewController: UIViewController, LoginViewDelegate {
             options: [ .curveEaseInOut ],
             animations: {
                 self.popQuizLabel.transform = self.popQuizLabel.transform.translatedBy(x: 0, y: -self.popQuizLabel.frame.maxY)
-            }) {(completed) in
-            UIView.animate(
-                withDuration: 1.5,
-                delay: 0.25,
-                options: [ .curveEaseInOut ],
-                animations: {
-                    self.loginField.transform = self.loginField.transform.translatedBy(x: 0, y: -self.loginField.frame.maxY)
-                }) { (completed) in
-                UIView.animate(
-                    withDuration: 1.5,
-                    delay: 0.25,
-                    options: [ .curveEaseInOut ],
-                    animations: {
-                        self.passwordField.transform = self.passwordField.transform.translatedBy(x: 0, y: -self.passwordField.frame.maxY)
-                    }) {(completed) in
-                    UIView.animate(
-                        withDuration: 1.5,
-                        delay: 0.25,
-                        options: [ .curveEaseInOut ],
-                        animations: {
-                            self.loginButton.transform = self.loginButton.transform.translatedBy(x: 0, y: -self.loginButton.frame.maxY)
-                        },
-                        completion: {_ in
-                            let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
-                            sceneDelegate?.goToApp()
-                        })
-                }
-                }
-            }
+            })
+        UIView.animate(
+            withDuration: 1.5,
+            delay: 0.25,
+            options: [ .curveEaseInOut ],
+            animations: {
+                self.loginField.transform = self.loginField.transform.translatedBy(x: 0, y: -self.loginField.frame.maxY)
+            })
+        UIView.animate(
+            withDuration: 1.5,
+            delay: 0.5,
+            options: [ .curveEaseInOut ],
+            animations: {
+                self.passwordField.transform = self.passwordField.transform.translatedBy(x: 0, y: -self.passwordField.frame.maxY)
+            })
+        UIView.animate(
+            withDuration: 1.5,
+            delay: 0.75,
+            options: [ .curveEaseInOut ],
+            animations: {
+                self.loginButton.transform = self.loginButton.transform.translatedBy(x: 0, y: -self.loginButton.frame.maxY)
+            },
+            completion: {_ in
+                let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+                sceneDelegate?.goToApp()
+            })
     }
 }
